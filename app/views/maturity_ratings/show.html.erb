@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @maturity_rating %>
+
+<div>
+  <%= link_to "Edit this maturity rating", edit_maturity_rating_path(@maturity_rating) %> |
+  <%= link_to "Back to maturity ratings", maturity_ratings_path %>
+
+  <%= button_to "Destroy this maturity rating", @maturity_rating, method: :delete %>
+</div>

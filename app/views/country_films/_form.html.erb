@@ -1,0 +1,27 @@
+<%= form_with(model: country_film) do |form| %>
+  <% if country_film.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(country_film.errors.count, "error") %> prohibited this country_film from being saved:</h2>
+
+      <ul>
+        <% country_film.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :country_id, style: "display: block" %>
+    <%= form.text_field :country_id %>
+  </div>
+
+  <div>
+    <%= form.label :film_id, style: "display: block" %>
+    <%= form.text_field :film_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<%= form_with(model: user_profile) do |form| %>
+  <% if user_profile.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
+
+      <ul>
+        <% user_profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nickname, style: "display: block" %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, style: "display: block" %>
+    <%= form.date_field :date_of_birth %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_registration, style: "display: block" %>
+    <%= form.date_field :date_of_registration %>
+  </div>
+
+  <%= form.fields_for :user do |user_fields| %>
+    <%= user_fields.label :email %><br />
+    <%= user_fields.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= user_fields.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= user_fields.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= user_fields.label :password_confirmation %><br />
+      <%= user_fields.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= user_fields.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= user_fields.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

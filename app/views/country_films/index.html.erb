@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Country films</h1>
+
+<div id="country_films">
+  <% @country_films.each do |country_film| %>
+    <%= render country_film %>
+    <p>
+      <%= link_to "Show this country film", country_film %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New country film", new_country_film_path %>

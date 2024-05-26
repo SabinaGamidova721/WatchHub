@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user_watch_later %>
+
+<div>
+  <%= link_to "Edit this user watch later", edit_user_watch_later_path(@user_watch_later) %> |
+  <%= link_to "Back to user watch laters", user_watch_laters_path %>
+
+  <%= button_to "Destroy this user watch later", @user_watch_later, method: :delete %>
+</div>

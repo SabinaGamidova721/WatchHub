@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slogan: MyString
+  link: MyString
+  release_year: 2024-05-09
+  maturity_rating: one
+  duration: 1
+  description: MyString
+
+two:
+  title: MyString
+  slogan: MyString
+  link: MyString
+  release_year: 2024-05-09
+  maturity_rating: two
+  duration: 1
+  description: MyString

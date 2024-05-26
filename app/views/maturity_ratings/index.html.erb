@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Maturity ratings</h1>
+
+<div id="maturity_ratings">
+  <% @maturity_ratings.each do |maturity_rating| %>
+    <%= render maturity_rating %>
+    <p>
+      <%= link_to "Show this maturity rating", maturity_rating %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New maturity rating", new_maturity_rating_path %>

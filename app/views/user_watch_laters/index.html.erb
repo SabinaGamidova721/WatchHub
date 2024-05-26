@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>User watch laters</h1>
+
+<div id="user_watch_laters">
+  <% @user_watch_laters.each do |user_watch_later| %>
+    <%= render user_watch_later %>
+    <p>
+      <%= link_to "Show this user watch later", user_watch_later %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New user watch later", new_user_watch_later_path %>

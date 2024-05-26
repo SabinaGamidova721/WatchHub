@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cast_film %>
+
+<div>
+  <%= link_to "Edit this cast film", edit_cast_film_path(@cast_film) %> |
+  <%= link_to "Back to cast films", cast_films_path %>
+
+  <%= button_to "Destroy this cast film", @cast_film, method: :delete %>
+</div>

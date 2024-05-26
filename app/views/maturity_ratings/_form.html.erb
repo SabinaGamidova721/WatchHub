@@ -1,0 +1,27 @@
+<%= form_with(model: maturity_rating) do |form| %>
+  <% if maturity_rating.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(maturity_rating.errors.count, "error") %> prohibited this maturity_rating from being saved:</h2>
+
+      <ul>
+        <% maturity_rating.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

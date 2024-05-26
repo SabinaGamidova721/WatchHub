@@ -1,0 +1,2 @@
+module UserWatchLatersHelper
+end

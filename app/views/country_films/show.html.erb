@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @country_film %>
+
+<div>
+  <%= link_to "Edit this country film", edit_country_film_path(@country_film) %> |
+  <%= link_to "Back to country films", country_films_path %>
+
+  <%= button_to "Destroy this country film", @country_film, method: :delete %>
+</div>
