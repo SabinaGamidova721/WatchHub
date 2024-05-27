@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class MaturityRatingsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,8 @@ class MaturityRatingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create maturity_rating" do
     assert_difference("MaturityRating.count") do
-      post maturity_ratings_url, params: { maturity_rating: { description: @maturity_rating.description, title: @maturity_rating.title } }
+      post maturity_ratings_url,
+           params: {maturity_rating: {description: @maturity_rating.description, title: @maturity_rating.title}}
     end
 
     assert_redirected_to maturity_rating_url(MaturityRating.last)
@@ -34,7 +37,8 @@ class MaturityRatingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update maturity_rating" do
-    patch maturity_rating_url(@maturity_rating), params: { maturity_rating: { description: @maturity_rating.description, title: @maturity_rating.title } }
+    patch maturity_rating_url(@maturity_rating),
+          params: {maturity_rating: {description: @maturity_rating.description, title: @maturity_rating.title}}
     assert_redirected_to maturity_rating_url(@maturity_rating)
   end
 

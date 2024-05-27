@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Film < ApplicationRecord
   belongs_to :maturity_rating
 

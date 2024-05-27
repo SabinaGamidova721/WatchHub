@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class RolesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create role" do
     assert_difference("Role.count") do
-      post roles_url, params: { role: { description: @role.description, title: @role.title } }
+      post roles_url, params: {role: {description: @role.description, title: @role.title}}
     end
 
     assert_redirected_to role_url(Role.last)
@@ -34,7 +36,7 @@ class RolesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update role" do
-    patch role_url(@role), params: { role: { description: @role.description, title: @role.title } }
+    patch role_url(@role), params: {role: {description: @role.description, title: @role.title}}
     assert_redirected_to role_url(@role)
   end
 

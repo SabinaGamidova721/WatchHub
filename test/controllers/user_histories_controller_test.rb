@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UserHistoriesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,8 @@ class UserHistoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_history" do
     assert_difference("UserHistory.count") do
-      post user_histories_url, params: { user_history: { film_id: @user_history.film_id, user_profile_id: @user_history.user_profile_id } }
+      post user_histories_url,
+           params: {user_history: {film_id: @user_history.film_id, user_profile_id: @user_history.user_profile_id}}
     end
 
     assert_redirected_to user_history_url(UserHistory.last)
@@ -34,7 +37,8 @@ class UserHistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_history" do
-    patch user_history_url(@user_history), params: { user_history: { film_id: @user_history.film_id, user_profile_id: @user_history.user_profile_id } }
+    patch user_history_url(@user_history),
+          params: {user_history: {film_id: @user_history.film_id, user_profile_id: @user_history.user_profile_id}}
     assert_redirected_to user_history_url(@user_history)
   end
 

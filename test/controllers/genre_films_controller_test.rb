@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class GenreFilmsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class GenreFilmsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create genre_film" do
     assert_difference("GenreFilm.count") do
-      post genre_films_url, params: { genre_film: { film_id: @genre_film.film_id, genre_id: @genre_film.genre_id } }
+      post genre_films_url, params: {genre_film: {film_id: @genre_film.film_id, genre_id: @genre_film.genre_id}}
     end
 
     assert_redirected_to genre_film_url(GenreFilm.last)
@@ -34,7 +36,8 @@ class GenreFilmsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update genre_film" do
-    patch genre_film_url(@genre_film), params: { genre_film: { film_id: @genre_film.film_id, genre_id: @genre_film.genre_id } }
+    patch genre_film_url(@genre_film),
+          params: {genre_film: {film_id: @genre_film.film_id, genre_id: @genre_film.genre_id}}
     assert_redirected_to genre_film_url(@genre_film)
   end
 

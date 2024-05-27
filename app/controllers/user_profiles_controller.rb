@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserProfilesController < ApplicationController
-  before_action :set_user_profile, only: %i[ show edit update destroy ]
+  before_action :set_user_profile, only: %i[show edit update destroy]
 
   # GET /user_profiles or /user_profiles.json
   def index
@@ -7,8 +9,7 @@ class UserProfilesController < ApplicationController
   end
 
   # GET /user_profiles/1 or /user_profiles/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_profiles/new
   def new
@@ -18,8 +19,7 @@ class UserProfilesController < ApplicationController
   end
 
   # GET /user_profiles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_profiles or /user_profiles.json
   def create
@@ -60,21 +60,24 @@ class UserProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_profile
-      @user_profile = UserProfile.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_profile_params
-      # params.require(:user_profile).permit(:nickname, :date_of_birth, :date_of_registration, :user_id, :avatar,
-      #                                      user_attributes: [:id, :email, :password])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_profile
+    @user_profile = UserProfile.find(params[:id])
+  end
 
-      if !params[:user_profile][:user_attributes][:password].blank?
-        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password]]
-      else
-        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email]]
-      end
-      params.require(:user_profile).permit(permitted_params)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_profile_params
+    # params.require(:user_profile).permit(:nickname, :date_of_birth, :date_of_registration, :user_id, :avatar,
+    #                                      user_attributes: [:id, :email, :password])
+
+    permitted_params = if params[:user_profile][:user_attributes][:password].blank?
+                         [:nickname, :date_of_birth, :date_of_registration, :avatar, {user_attributes: %i[id email]}]
+                       else
+                         [:nickname, :date_of_birth, :date_of_registration, :avatar, {
+                           user_attributes: %i[id email password]
+                         }]
+                       end
+    params.require(:user_profile).permit(permitted_params)
+  end
 end

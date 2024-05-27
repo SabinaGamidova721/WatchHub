@@ -1,8 +1,5 @@
+# frozen_string_literal: true
+
 class IndexController < ApplicationController
-
-  def home
-  end
-
-  private
-
+  def home; end
 end
