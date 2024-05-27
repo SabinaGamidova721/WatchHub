@@ -225,11 +225,8 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.6)
-<<<<<<< HEAD
     pg (1.5.6-x64-mingw-ucrt)
-=======
     popper_js (2.11.8)
->>>>>>> fa6d955b83721b0f6301f880e3826ee4d11ec9b1
     psych (5.1.2)
       stringio
     public_suffix (5.0.5)
