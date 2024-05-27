@@ -1,0 +1,290 @@
+--- CAST (actor): ---
+
+1
+> First name: Richard
+> Last name: Gere
+> Birthday: 31.08.1949
+> Description: American actor. Golden Globe Award winner and Emmy Award nominee.
+> Role: Actor
+
+2
+> First name: Julia
+> Last name: Roberts
+> Birthday: 28.10.1967
+> Description: American film actor and producer, the most popular actor in the world (2002-2005). Winner of three Golden Globes with 8 nominations, nominee for four Academy Awards, winner of the Oscar Award from the US Academy of Film Science for her work in the film Erin Brockovich.
+> Role: Actor
+
+3
+> First name: Leonardo
+> Last name: DiCaprio
+> Birthday: 11.11.1974
+> Description: American actor and film producer. Known for his work in biographical and period films, he is the recipient of numerous accolades, including an Academy Award, a British Academy Film Award, and three Golden Globe Awards.
+> Role: Actor
+
+4
+> First name: Kate
+> Last name: Winslet
+> Birthday: 5.10.1975
+> Description: English actress. Known for her roles as headstrong and complicated women in independent films, particularly period dramas, she has received numerous accolades, including an Academy Award, a Grammy Award, two Primetime Emmy Awards, five BAFTA Awards and five Golden Globe Awards.
+> Role: Actor
+
+5
+> First name: Zoe
+> Last name: Saldana
+> Birthday: 19.06.1978
+> Description: American actress. Known primarily for her work in science fiction film franchises, she has starred in four of the highest-grossing films of all time (Avatar, Avatar: The Way of Water, Avengers: Infinity War, and Avengers: Endgame).
+> Role: Actor
+
+6
+> First name: Sam
+> Last name: Worthington
+> Birthday: 2.08.1976
+> Description: Australian actor. He is known for playing Jake Sully in the Avatar franchise, Marcus Wright in Terminator Salvation, and Perseus in Clash of the Titans and its sequel Wrath of the Titans.
+> Role: Actor
+
+7
+> First name: Sigourney 
+> Last name: Weaver
+> Birthday: 8.10.1949
+> Description: American actress. A figure in science fiction and popular culture, she has received various accolades, including a British Academy Film Award, two Golden Globe Awards, and a Grammy Award, in addition to nominations for three Academy Awards, four Primetime Emmy Awards, and a Tony Award.
+> Role: Actor
+
+8
+> First name: Jennifer
+> Last name: Lawrence
+> Birthday: 15.08.1990
+> Description: American actress. She is known for starring in both action film franchises and independent dramas, and her films have grossed over $6 billion worldwide.
+> Role: Actor
+
+9
+> First name: Meryl
+> Last name: Streep
+> Birthday: 22.06.1949
+> Description: American actress. Known for her versatility and accent adaptability, she has been described as "the best actress of her generation".
+> Role: Actor
+
+10
+> First name: Anne
+> Last name: Hathaway
+> Birthday: 12.11.1982
+> Description: American actress. Her accolades include an Academy Award, a British Academy Film Award, a Golden Globe Award, and a Primetime Emmy Award.
+> Role: Actor
+
+11
+> First name: Brad
+> Last name: Pitt
+> Birthday: 18.12.1963
+> Description: American actor and film producer. He is the recipient of various accolades, including two Academy Awards, two British Academy Film Awards, two Golden Globe Awards, and a Primetime Emmy Award.
+> Role: Actor
+
+12
+> First name: Angelina
+> Last name: Jolie
+> Birthday: 4.06.1975
+> Description: American actress, filmmaker, and humanitarian. The recipient of numerous accolades, including an Academy Award and three Golden Globe Awards, she has been named Hollywood's highest-paid actress multiple times.
+> Role: Actor
+
+13
+> First name: Daniel
+> Last name: Craig
+> Birthday: 2.05.1968
+> Description: English actor. He gained international fame by playing the fictional secret agent James Bond for five installments in the film series, from Casino Royale (2006) up to No Time to Die (2021).
+> Role: Actor
+
+14
+> First name: Gerard
+> Last name: Butler
+> Birthday: 13.11.1969
+> Description: Scottish actor and film producer. After studying law, he turned to acting in the mid-1990s with small roles in productions such as Mrs Brown (1997), the James Bond film Tomorrow Never Dies (1997), and Tale of the Mummy (1998).
+> Role: Actor
+
+15
+> First name: Monica
+> Last name: Bellucci
+> Birthday: 30.09.1964
+> Description: Italian actress and model who began her career as a fashion model before working in Italian, American and French films. Bellucci has an eclectic filmography in a range of genres and languages, and her accolades include the David di Donatello, Globo d'oro and Nastro d'Argento awards.
+> Role: Actor
+
+16
+> First name: Sam
+> Last name: Neill
+> Birthday: 14.09.1974
+> Description: New Zealand actor. Neill's career has included leading roles in both dramas and blockbusters. Considered an "international leading man", he has been regarded as one of the most versatile actors of his generation.
+> Role: Actor
+
+17
+> First name: Laura
+> Last name: Dern
+> Birthday: 10.02.1967
+> Description: American actress. She is the recipient of numerous accolades, including an Academy Award, a Primetime Emmy Award, a BAFTA Award, and five Golden Globe Awards.
+> Role: Actor
+
+18
+> First name: Richard
+> Last name: Attenborough
+> Birthday: 29.08.1923
+> Description: English actor, film director and producer, who was the president of the Royal Academy of Dramatic Art (RADA) and the British Academy of Film and Television Arts (BAFTA), as well as life president of the Premier League club Chelsea.
+> Role: Actor
+
+19
+> First name: Arnold
+> Last name: Schwarzenegger
+> Birthday: 30.07.1947
+> Description: Austrian and American actor, businessman, filmmaker, former politician, and former professional bodybuilder known for his roles in high-profile action movies.
+> Role: Actor
+
+20
+> First name: Michael
+> Last name: Biehn
+> Birthday: 31.07.1956
+> Description: American actor, primarily known for his roles in science fiction films directed by James Cameron; as Sgt. Kyle Reese in The Terminator (1984), Cpl. Dwayne Hicks in Aliens (1986), and Lt. Coffey in The Abyss (1989).
+> Role: Actor
+
+21
+> First name: Linda
+> Last name: Hamilton
+> Birthday: 26.09.1956
+> Description: American actress. Known for portraying tough, resilient characters, she made her film debut in 1979 before achieving fame with her starring role as Sarah Connor in The Terminator (1984) and two of its sequels, Terminator 2: Judgment Day (1991) and Terminator: Dark Fate (2019).
+> Role: Actor
+
+22
+> First name: Emma
+> Last name: Watson
+> Birthday: 15.04.1990
+> Description: English actress. Known for her roles in both blockbusters and independent films, she has received a selection of accolades, including a Young Artist Award and three MTV Movie Awards.
+> Role: Actor
+
+23
+> First name: Dan
+> Last name: Stevens
+> Birthday: 10.10.1982
+> Description: English actor. He first drew international attention for his role as Matthew Crawley in the ITV acclaimed period drama series Downton Abbey (2010–2012).
+> Role: Actor
+
+24
+> First name: Luke
+> Last name: Evans
+> Birthday: 15.04.1979
+> Description: Welsh actor and singer. He began his career on the stage, and performed in London's West End productions of Rent, Miss Saigon, and Piaf before making his film breakthrough in the Clash of the Titans 2010 remake.
+> Role: Actor
+
+25
+> First name: Daniel
+> Last name: Radcliffe
+> Birthday: 23.07.1989
+> Description: English actor. He rose to fame at age 12 when he began portraying Harry Potter in the film series of the same name.
+> Role: Actor
+
+26
+> First name: Rupert
+> Last name: Grint
+> Birthday: 24.08.1988
+> Description: English actor. Grint rose to fame for his role as Ron Weasley in the Harry Potter film series, for which he was cast at age eleven, having previously acted only in school plays and his local theatre group.
+> Role: Actor
+
+27
+> First name: Johnny
+> Last name: Depp
+> Birthday: 9.06.1963
+> Description: American actor and musician. He is the recipient of multiple accolades, including a Golden Globe Award as well as nominations for three Academy Awards and two BAFTA awards.
+> Role: Actor
+
+28
+> First name: Freddie
+> Last name: Highmore
+> Birthday: 14.02.1992
+> Description: English actor. He is known for his starring roles beginning as a child, in the films Finding Neverland (2004), Charlie and the Chocolate Factory (2005), Arthur and the Invisibles (2006), August Rush (2007), and The Spiderwick Chronicles (2008).
+> Role: Actor
+
+--- CAST (film director): ---
+
+29
+> First name: Garry
+> Last name: Marshall
+> Birthday: 13.11.1934
+> Description: American screenwriter, film director, producer and actor. Marshall began his career in the 1960s as a writer for The Lucy Show and The Dick Van Dyke Show until he developed the television adaptation of Neil Simon's play The Odd Couple.
+> Role: Film Director
+
+30
+> First name: James
+> Last name: Cameron
+> Birthday: 16.08.1954
+> Description: Canadian filmmaker. He is a major figure in the post-New Hollywood era. He often uses novel technologies with a classical filmmaking style.
+> Role: Film Director
+
+31
+> First name: Adam
+> Last name: McKay
+> Birthday: 17.04.1968
+> Description: American screenwriter, producer, and director. McKay began his career as a head writer for the NBC sketch comedy show Saturday Night Live (SNL) from 1995 to 2001.
+> Role: Film Director
+
+32
+> First name: David
+> Last name: Frankel
+> Birthday: 2.04.1959
+> Description: American filmmaker. He directed the 2006 film The Devil Wears Prada, as well as Marley & Me (2008), Hope Springs (2012), Jerry & Marge Go Large (2022), and the first and fourth episodes of the Netflix miniseries Inventing Anna (2022).
+> Role: Film Director
+
+33
+> First name: Doug
+> Last name: Liman
+> Birthday: 24.07.1965
+> Description: American film director and producer. He is known for directing the films Swingers (1996), Go (1999), The Bourne Identity (2002), Mr. & Mrs. Smith (2005), Jumper (2008), Edge of Tomorrow (2014), and American Made (2017).
+> Role: Film Director
+
+34
+> First name: Simon
+> Last name: West
+> Birthday: 17.07.1961
+> Description: English film director and producer. He has primarily worked in the action genre, most notably as the director of the films Con Air, Lara Croft: Tomb Raider, The Mechanic, and The Expendables 2.
+> Role: Film Director
+
+35
+> First name: Jan
+> Last name: De Bont
+> Birthday: 22.10.1943
+> Description: Dutch retired cinematographer, director and film producer. He is best known for directing the films Speed (1994) and Twister (1996).
+> Role: Film Director
+
+36
+> First name: Sam
+> Last name: Mendes
+> Birthday: 1.08.1965
+> Description: British film and stage director, producer, and screenwriter. In 2000, Mendes was appointed a CBE for his services to drama, and he was knighted in the 2020 New Years Honours List.
+> Role: Film Director
+
+37
+> First name: Steven
+> Last name: Spielberg
+> Birthday: 18.12.1946
+> Description: American filmmaker. A major figure of the New Hollywood era and pioneer of the modern blockbuster, he is the most commercially successful director in history.
+> Role: Film Director
+
+38
+> First name: Bill
+> Last name: Condon
+> Birthday: 22.10.1955
+> Description: American director and screenwriter. Condon is known for writing and/or directing numerous successful and acclaimed films including Gods and Monsters, Chicago, Kinsey, Dreamgirls and others.
+> Role: Film Director
+
+39
+> First name: Chris
+> Last name: Columbus
+> Birthday: 10.09.1958
+> Description: American filmmaker, who gained recognition soon after with the highly successful Christmas comedy Home Alone (1990) and Home Alone 2: Lost in New York (1992).
+> Role: Film Director
+
+40
+> First name: Tim
+> Last name: Burton
+> Birthday: 25.08.1958
+> Description: American director, producer, writer, and animator. Known for pioneering goth culture in the American film industry, Burton is famous for his gothic horror and fantasy films.
+> Role: Film Director
+
+41
+> First name: Lasse
+> Last name: Hallström
+> Birthday: 2.06.1946
+> Description: Swedish film director. He first became known for directing almost all the music videos by the pop group ABBA, and subsequently became a feature film director.
+> Role: Film Director

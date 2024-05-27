@@ -1,6 +1,10 @@
 source "https://rubygems.org"
 
+<<<<<<< HEAD
 ruby ">= 3.2"
+=======
+ruby "3.2.2"
+>>>>>>> fa6d955b83721b0f6301f880e3826ee4d11ec9b1
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
