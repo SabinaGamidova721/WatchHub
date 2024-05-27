@@ -364,7 +364,8 @@
               </ul>
             </div>
             <!-- container-fluid.// -->
-          </nav>            <div class="right-panel">
+          </nav>
+          <div class="right-panel">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-btn">
                            <span class="navbar-toggler-icon"></span>
@@ -388,8 +389,9 @@
                   </a>
                   <ul class="dropdown-menu p-0 dropdown-search m-0 iq-search-bar" style="width: 20rem;">
                     <li class="p-0">
+                      <form method="get" action="<%= films_path %>">
                       <div class="form-group input-group mb-0">
-                        <input type="text" class="form-control border-0" placeholder="Search...">
+                        <input type="text" name="title" class="form-control border-0" placeholder="Search...">
                         <button type="submit" class="search-submit">
                           <svg class="icon-15" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -399,6 +401,7 @@
                           </svg>
                         </button>
                       </div>
+                      </form>
                     </li>
                   </ul>
                 </div>

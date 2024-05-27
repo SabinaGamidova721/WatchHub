@@ -3,7 +3,10 @@ class FilmsController < ApplicationController
 
   # GET /films or /films.json
   def index
-    @films = Film.all
+    @query = FilmsQuery.new(films_params)
+    @films = @query.results
+    @genres = Genre.all
+    @maturity_ratings = MaturityRating.all
   end
 
   # GET /films/1 or /films/1.json
@@ -66,5 +69,9 @@ class FilmsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def film_params
       params.require(:film).permit(:title, :slogan, :link, :release_year, :maturity_rating_id, :duration, :description, :avatar)
+    end
+
+    def films_params
+      params.permit(:title, :genre_id, :min_year, :max_duration, :maturity_rating_id, :filter_by)
     end
 end
