@@ -15,4 +15,8 @@ class Film < ApplicationRecord
   has_many :genres, through: :genre_films
 
   has_one_attached :avatar
+
+  def average_rating
+    ratings.average(:score).to_f.round(2)
+  end
 end
