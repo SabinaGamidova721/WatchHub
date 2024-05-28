@@ -174,12 +174,27 @@
                       <table class="table">
                         <tbody>
                         <% @all_films.each_with_index do |film, index| %>
-                          <tr>
-                            <td class="w-15"><%= link_to image_tag("placeholder_1.png", class: "img-fluid person-img object-fit"), film_path(film) %></td>
+                          <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
+                            <td class="w-15"><%= image_tag("placeholder_1.png", class: "img-fluid person-img object-fit") %></td>
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
                                 <span><%= index+1 %></span>
                                 <span class="text-capitalize"><%= film.title%></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.slogan%>"</span></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><%= film.genres.map(&:title).join(', ')%></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.maturity_rating.title%>"</span></span>
                               </div>
                             </td>
                             <td><span class="fw-500 font-size-18 text-white"><%= film.release_year.year %></span></td>
