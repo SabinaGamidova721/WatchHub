@@ -98,7 +98,7 @@
               </div>
               <ul class="navbar-nav iq-nav-menu  list-unstyled" id="header-menu">
                 <li class="nav-item">
-                  <%= link_to "Home", root_path, class: "nav-link active item-name", style: "font-size: 32px"%>
+                  <%= link_to "Home", home_path, class: "nav-link active item-name", style: "font-size: 32px"%>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Genres", genres_path, class: "nav-link item-name", style: "font-size: 32px"%>
@@ -170,13 +170,13 @@
                     <span class="font-size-14 fw-500 text-capitalize text-white">Jenny</span>
                   </li>
                   <li>
-                    <a href="./playlist.html" class="iq-sub-card d-flex align-items-center gap-3">
+                    <%= link_to edit_user_profile_path(current_user), class: "iq-sub-card d-flex align-items-center gap-3", style: "text-decoration: none;" do %>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 22" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.84455 20.6621C4.15273 20.6621 1 20.0876 1 17.7868C1 15.486 4.13273 13.3621 7.84455 13.3621C11.5364 13.3621 14.6891 15.4654 14.6891 17.7662C14.6891 20.066 11.5564 20.6621 7.84455 20.6621Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.83725 10.1738C10.26 10.1738 12.2236 8.21015 12.2236 5.78742C12.2236 3.36469 10.26 1.40015 7.83725 1.40015C5.41452 1.40015 3.44998 3.36469 3.44998 5.78742C3.4418 8.20196 5.3918 10.1656 7.80634 10.1738C7.81725 10.1738 7.82725 10.1738 7.83725 10.1738Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                       </svg>
                       <h6 class="mb-0 font-size-14 fw-normal">My Account</h6>
-                    </a>
+                    <% end %>
                   </li>
                   <li>
                     <a href="./playlist.html" class="iq-sub-card d-flex align-items-center gap-3">
@@ -196,12 +196,12 @@
                     </a>
                   </li>
                   <li>
-                    <a href="./login.html" class="iq-sub-card iq-logout-2 mt-1 d-flex justify-content-center gap-2">
+                    <%= button_to destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "iq-sub-card iq-logout-2 mt-1 d-flex justify-content-center gap-2", style: "text-decoration: none;" do %>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M1.82209 15.9999C1.46654 15.9999 1.16283 15.874 0.910981 15.6221C0.659129 15.3703 0.533203 15.0666 0.533203 14.711V1.73322C0.533203 1.37767 0.659129 1.07397 0.910981 0.822114C1.16283 0.570262 1.46654 0.444336 1.82209 0.444336H7.95543V1.44434H1.82209C1.74802 1.44434 1.68135 1.47397 1.62209 1.53322C1.56283 1.59248 1.5332 1.65915 1.5332 1.73322V14.711C1.5332 14.7851 1.56283 14.8517 1.62209 14.911C1.68135 14.9703 1.74802 14.9999 1.82209 14.9999H7.95543V15.9999H1.82209ZM12.0888 11.5999L11.3554 10.8888L13.5332 8.73322H5.68876V7.711H13.511L11.3332 5.55545L12.0665 4.82211L15.4665 8.24434L12.0888 11.5999Z" fill="currentColor"></path>
                       </svg>
-                      <h6 class="mb-0 font-size-14 fw-normal">Logout</h6>
-                    </a>
+                      <h6 class="mb-0 font-size-14 fw-normal">Sign out</h6>
+                    <% end %>
                   </li>
                 </ul>
               </li>
