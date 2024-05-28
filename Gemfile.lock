@@ -369,30 +369,30 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activeadmin
-  better_errors
-  binding_of_caller
-  bootsnap
-  capybara
-  debug
+  activeadmin (= 3.2.1)
+  better_errors (= 2.10.1)
+  binding_of_caller (= 1.0.1)
+  bootsnap (= 1.18.3)
+  capybara (= 3.40.0)
+  debug (= 1.9.2)
   devise (~> 4.9)
-  font-awesome-rails
-  importmap-rails
-  inline_svg
-  jbuilder
+  font-awesome-rails (= 4.7.0.8)
+  importmap-rails (= 2.0.1)
+  inline_svg (= 1.9.0)
+  jbuilder (= 2.12.0)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
-  rails-i18n
+  rails-i18n (= 7.0.9)
   redis (>= 4.0.1)
   rubocop (~> 1.63)
-  sassc-rails
-  selenium-webdriver
-  sprockets-rails
-  stimulus-rails
-  turbo-rails
-  tzinfo-data
-  web-console
+  sassc-rails (= 2.1.2)
+  selenium-webdriver (= 4.20.1)
+  sprockets-rails (= 3.4.2)
+  stimulus-rails (= 1.3.3)
+  turbo-rails (= 2.0.5)
+  tzinfo-data (= 1.2024.1)
+  web-console (= 4.2.1)
 
 RUBY VERSION
    ruby 3.3.0p0

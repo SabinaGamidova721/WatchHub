@@ -1,14 +1,46 @@
-<p style="color: green"><%= notice %></p>
+<!--bread-crumb-->
+<div class="iq-breadcrumb" style="background-image: url(https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp);">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-sm-12">
+        <nav aria-label="breadcrumb" class="text-center">
+          <h2 class="title">Genres</h2>
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="/">Home</a></li> 
+            <li class="breadcrumb-item active">Genres</li>
+          </ol>
+        </nav>
+      </div>
+    </div> 
+  </div>
+</div>      
+<!--bread-crumb-->
 
-<h1>Genres</h1>
-
-<div id="genres">
-  <% @genres.each do |genre| %>
-    <%= render genre %>
-    <p>
-      <%= link_to "Show this genre", genre %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New genre", new_genre_path %>
+<section class="section-padding">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h4 cass="main-title text-capitalize mb-0">Genres</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <% @genres.each do |genre| %>
+        <div class="col mb-4">
+          <div class="iq-card-geners card-hover-style-two">
+            <div class="block-images position-relative w-100">
+              <div class="img-box rounded position-relative">
+                <%#= image_tag("genres/genre_#{genre.title.downcase}.jpg", alt: "geners-img", class: "img-fluid object-cover w-100 rounded") %>
+                <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/genre/01.webp" alt="geners-img" class="img-fluid object-cover w-100 rounded">
+                <div class="blog-description">
+                  <h6 class="mb-0 iq-title">
+                    <a href="<%= genre_path(genre) %>" class="text-decoration-none text-capitalize line-count-2 p-2">
+                      <%= genre.title %>
+                    </a>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
