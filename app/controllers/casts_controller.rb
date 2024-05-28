@@ -9,7 +9,7 @@ class CastsController < ApplicationController
   # GET /casts/1 or /casts/1.json
   def show
     @top_films = @cast.films.joins(:ratings).group(:id).order('AVG(ratings.score) DESC').limit(6)
-    @all_films = @cast.films.includes(:genres).order(release_year: :desc)
+    @all_films = @cast.films.includes(:genres).order(release_date: :desc)
   end
 
   # GET /casts/new
