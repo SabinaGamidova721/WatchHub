@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
-  root to: "index#home"
+  #devise_for :users
+  #root to: "index#home"
+
+  root to: "index#startpage"
+  get '/home', to: 'index#home', as: :home
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_scope :user do
+    get '/users/sign_in', to: 'users/sessions#new'
+    post '/users/sign_out', to: 'users/sessions#destroy' 
+  end
 
   resources :ratings
   resources :comments
