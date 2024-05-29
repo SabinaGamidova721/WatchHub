@@ -1,4 +1,10 @@
-<div class="iq-breadcrumb" style="background-image: url(<%= asset_path("genres/genre_#{@genre.title.downcase}.jpg")%>);">
+<% genre_image_path = "genres/genre_#{@genre.title.parameterize}.jpg" %>
+<% full_image_path = if asset_exists?(genre_image_path)
+                        asset_path(genre_image_path)
+                      else
+                        "https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp"
+                      end %>
+<div class="iq-breadcrumb special-page" style="background-image: url(<%= full_image_path %>);">
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="col-sm-12">
