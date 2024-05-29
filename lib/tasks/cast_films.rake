@@ -67,8 +67,8 @@ namespace :cast_films do
       {cast_id: 28, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       {cast_id: 40, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       # Hachi: A Dog's Tale
-      {cast_id: 1, film_id: films.find_by(title: "A Dog's Tale").id},
-      {cast_id: 41, film_id: films.find_by(title: "A Dog's Tale").id}
+      {cast_id: 1, film_id: films.find_by(title: "Hachi: A Dog's Tale").id},
+      {cast_id: 41, film_id: films.find_by(title: "Hachi: A Dog's Tale").id}
     ]
 
     CastFilm.create(cast_films_data)
