@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class RatingsController < ApplicationController
-  before_action :set_rating, only: %i[ show edit update destroy ]
+  before_action :set_rating, only: %i[show edit update destroy]
 
   # GET /ratings or /ratings.json
   def index
@@ -7,8 +9,7 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1 or /ratings/1.json
-  def show
-  end
+  def show; end
 
   # GET /ratings/new
   def new
@@ -16,8 +17,7 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ratings or /ratings.json
   def create
@@ -58,13 +58,14 @@ class RatingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rating
-      @rating = Rating.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def rating_params
-      params.require(:rating).permit(:user_profile_id, :film_id, :score)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rating
+    @rating = Rating.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def rating_params
+    params.require(:rating).permit(:user_profile_id, :film_id, :score)
+  end
 end

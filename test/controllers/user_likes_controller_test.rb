@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UserLikesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,8 @@ class UserLikesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_like" do
     assert_difference("UserLike.count") do
-      post user_likes_url, params: { user_like: { film_id: @user_like.film_id, user_profile_id: @user_like.user_profile_id } }
+      post user_likes_url,
+           params: {user_like: {film_id: @user_like.film_id, user_profile_id: @user_like.user_profile_id}}
     end
 
     assert_redirected_to user_like_url(UserLike.last)
@@ -34,7 +37,8 @@ class UserLikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_like" do
-    patch user_like_url(@user_like), params: { user_like: { film_id: @user_like.film_id, user_profile_id: @user_like.user_profile_id } }
+    patch user_like_url(@user_like),
+          params: {user_like: {film_id: @user_like.film_id, user_profile_id: @user_like.user_profile_id}}
     assert_redirected_to user_like_url(@user_like)
   end
 

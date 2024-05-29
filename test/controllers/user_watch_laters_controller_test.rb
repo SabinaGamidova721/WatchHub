@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UserWatchLatersControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,9 @@ class UserWatchLatersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_watch_later" do
     assert_difference("UserWatchLater.count") do
-      post user_watch_laters_url, params: { user_watch_later: { film_id: @user_watch_later.film_id, user_profile_id: @user_watch_later.user_profile_id } }
+      post user_watch_laters_url,
+           params: {user_watch_later: {film_id:         @user_watch_later.film_id,
+                                       user_profile_id: @user_watch_later.user_profile_id}}
     end
 
     assert_redirected_to user_watch_later_url(UserWatchLater.last)
@@ -34,7 +38,9 @@ class UserWatchLatersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_watch_later" do
-    patch user_watch_later_url(@user_watch_later), params: { user_watch_later: { film_id: @user_watch_later.film_id, user_profile_id: @user_watch_later.user_profile_id } }
+    patch user_watch_later_url(@user_watch_later),
+          params: {user_watch_later: {film_id:         @user_watch_later.film_id,
+                                      user_profile_id: @user_watch_later.user_profile_id}}
     assert_redirected_to user_watch_later_url(@user_watch_later)
   end
 

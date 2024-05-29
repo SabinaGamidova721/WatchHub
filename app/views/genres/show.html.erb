@@ -1,10 +1,51 @@
-<p style="color: green"><%= notice %></p>
+<div class="iq-breadcrumb" style="background-image: url(https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp);">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-sm-12">
+        <nav aria-label="breadcrumb" class="text-center">
+          <h2 class="title"><%= @genre.title %></h2>
+          <p class="description normal-description"><%= @genre.description %></p>
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li> 
+            <li class="breadcrumb-item active"><%= @genre.title %></li>
+          </ol>
+        </nav>
+      </div>
+    </div> 
+  </div>
+</div>
+  
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Films in <%= @genre.title %> genre:</h3>
+      <% if @films.any? %>
+        <ul>
+          <% @films.each do |film| %>
+            <li><%= film.title %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No films found for this genre.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= render @genre %>
+<div class="container mt-4 mb-5">
+  <div class="row row-cols-1 row-cols-md-6 g-3 justify-content-center">
+    <% @films.each do |film| %>
+      <div class="col">
+        <%= link_to film_path(film), class: "link-light" do %>
+          <div class="card shadow-sm d-flex flex-column h-100">
+            <div class="placeholder" style="background-color: #55595c; width: 100%; height: 250px;"></div>
 
-<div>
-  <%= link_to "Edit this genre", edit_genre_path(@genre) %> |
-  <%= link_to "Back to genres", genres_path %>
-
-  <%= button_to "Destroy this genre", @genre, method: :delete %>
+            <div class="card-body">
+              <p class="card-text text-center h5"><%= film.title %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCountryFilms < ActiveRecord::Migration[7.1]
   def change
     create_table :country_films do |t|

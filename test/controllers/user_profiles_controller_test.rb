@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UserProfilesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,11 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user_profile" do
     assert_difference("UserProfile.count") do
-      post user_profiles_url, params: { user_profile: { date_of_birth: @user_profile.date_of_birth, date_of_registration: @user_profile.date_of_registration, nickname: @user_profile.nickname, user_id: @user_profile.user_id } }
+      post user_profiles_url,
+           params: {user_profile: {date_of_birth:        @user_profile.date_of_birth,
+                                   date_of_registration: @user_profile.date_of_registration,
+                                   nickname:             @user_profile.nickname,
+                                   user_id:              @user_profile.user_id}}
     end
 
     assert_redirected_to user_profile_url(UserProfile.last)
@@ -34,7 +40,10 @@ class UserProfilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_profile" do
-    patch user_profile_url(@user_profile), params: { user_profile: { date_of_birth: @user_profile.date_of_birth, date_of_registration: @user_profile.date_of_registration, nickname: @user_profile.nickname, user_id: @user_profile.user_id } }
+    patch user_profile_url(@user_profile),
+          params: {user_profile: {date_of_birth: @user_profile.date_of_birth,
+                                  date_of_registration: @user_profile.date_of_registration,
+                                  nickname: @user_profile.nickname, user_id: @user_profile.user_id}}
     assert_redirected_to user_profile_url(@user_profile)
   end
 

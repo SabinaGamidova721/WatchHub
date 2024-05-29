@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class CountryFilmsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,8 @@ class CountryFilmsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create country_film" do
     assert_difference("CountryFilm.count") do
-      post country_films_url, params: { country_film: { country_id: @country_film.country_id, film_id: @country_film.film_id } }
+      post country_films_url,
+           params: {country_film: {country_id: @country_film.country_id, film_id: @country_film.film_id}}
     end
 
     assert_redirected_to country_film_url(CountryFilm.last)
@@ -34,7 +37,8 @@ class CountryFilmsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update country_film" do
-    patch country_film_url(@country_film), params: { country_film: { country_id: @country_film.country_id, film_id: @country_film.film_id } }
+    patch country_film_url(@country_film),
+          params: {country_film: {country_id: @country_film.country_id, film_id: @country_film.film_id}}
     assert_redirected_to country_film_url(@country_film)
   end
 

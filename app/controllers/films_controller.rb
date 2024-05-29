@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FilmsController < ApplicationController
-  before_action :set_film, only: %i[ show edit update destroy ]
+  before_action :set_film, only: %i[show edit update destroy]
 
   # GET /films or /films.json
   def index
@@ -10,8 +12,7 @@ class FilmsController < ApplicationController
   end
 
   # GET /films/1 or /films/1.json
-  def show
-  end
+  def show; end
 
   # GET /films/new
   def new
@@ -19,8 +20,7 @@ class FilmsController < ApplicationController
   end
 
   # GET /films/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /films or /films.json
   def create
@@ -61,17 +61,19 @@ class FilmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_film
-      @film = Film.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def film_params
-      params.require(:film).permit(:title, :slogan, :link, :release_year, :maturity_rating_id, :duration, :description, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_film
+    @film = Film.find(params[:id])
+  end
 
-    def films_params
-      params.permit(:title, :genre_id, :min_year, :max_duration, :maturity_rating_id, :filter_by)
-    end
+  # Only allow a list of trusted parameters through.
+  def film_params
+    params.require(:film).permit(:title, :slogan, :link, :release_year, :maturity_rating_id, :duration, :description,
+                                 :avatar)
+  end
+  
+  def films_params
+    params.permit(:title, :genre_id, :min_year, :max_duration, :maturity_rating_id, :filter_by)
+  end
 end

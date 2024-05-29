@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class FilmsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,10 @@ class FilmsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create film" do
     assert_difference("Film.count") do
-      post films_url, params: { film: { description: @film.description, duration: @film.duration, link: @film.link, maturity_rating_id: @film.maturity_rating_id, release_year: @film.release_year, slogan: @film.slogan, title: @film.title } }
+      post films_url,
+           params: {film: {description: @film.description, duration: @film.duration, link: @film.link,
+                           maturity_rating_id: @film.maturity_rating_id, release_year: @film.release_year,
+                           slogan: @film.slogan, title: @film.title}}
     end
 
     assert_redirected_to film_url(Film.last)
@@ -34,7 +39,10 @@ class FilmsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update film" do
-    patch film_url(@film), params: { film: { description: @film.description, duration: @film.duration, link: @film.link, maturity_rating_id: @film.maturity_rating_id, release_year: @film.release_year, slogan: @film.slogan, title: @film.title } }
+    patch film_url(@film),
+          params: {film: {description: @film.description, duration: @film.duration, link: @film.link,
+                          maturity_rating_id: @film.maturity_rating_id, release_year: @film.release_year,
+                          slogan: @film.slogan, title: @film.title}}
     assert_redirected_to film_url(@film)
   end
 

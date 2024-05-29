@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class CastFilmsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class CastFilmsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cast_film" do
     assert_difference("CastFilm.count") do
-      post cast_films_url, params: { cast_film: { cast_id: @cast_film.cast_id, film_id: @cast_film.film_id } }
+      post cast_films_url, params: {cast_film: {cast_id: @cast_film.cast_id, film_id: @cast_film.film_id}}
     end
 
     assert_redirected_to cast_film_url(CastFilm.last)
@@ -34,7 +36,7 @@ class CastFilmsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cast_film" do
-    patch cast_film_url(@cast_film), params: { cast_film: { cast_id: @cast_film.cast_id, film_id: @cast_film.film_id } }
+    patch cast_film_url(@cast_film), params: {cast_film: {cast_id: @cast_film.cast_id, film_id: @cast_film.film_id}}
     assert_redirected_to cast_film_url(@cast_film)
   end
 
