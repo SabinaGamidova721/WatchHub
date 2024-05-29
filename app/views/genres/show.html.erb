@@ -31,3 +31,21 @@
     </div>
   </div>
 </div>
+
+<div class="container mt-4 mb-5">
+  <div class="row row-cols-1 row-cols-md-6 g-3 justify-content-center">
+    <% @films.each do |film| %>
+      <div class="col">
+        <%= link_to film_path(film), class: "link-light" do %>
+          <div class="card shadow-sm d-flex flex-column h-100">
+            <div class="placeholder" style="background-color: #55595c; width: 100%; height: 250px;"></div>
+
+            <div class="card-body">
+              <p class="card-text text-center h5"><%= film.title %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
