@@ -64,7 +64,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-5">
           <div class="cast-box position-relative">
-            <%= image_tag("placeholder.png", class: "img-fluid object-cover w-100", loading: "lazy") %>
+            <%= image_tag("cast/#{@cast.first_name} #{@cast.last_name}.jpg", class: "img-fluid object-cover w-100", loading: "lazy") %>
           </div>
           <h5 class="mt-3 mb-4 text-white fw-500">Personal Details</h5>
           <h6 class="font-size-18 text-white fw-500">Born :</h6>
@@ -81,7 +81,7 @@
           <div class="awards-box pb-0 mb-4 border-bottom">
           </div>
           <div class="pb-md-5 mt-3">
-            <h5 class="main-title text-capitalize mb-4" style="font-size: 32px">Most View Movies</h5>
+            <h3 class="main-title text-capitalize mb-4" style="padding-left: 15px">Most View Movies</h3>
             <div class="position-relative swiper swiper-card iq-top-ten-block-slider swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="6" data-laptop="6" data-tab="3" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="false" data-navigation="true" data-pagination="true">
               <ul class="p-0 swiper-wrapper mb-5 list-inline" id="swiper-wrapper-89f6aa5889fa2af7" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
                 <% @top_films.each do |film|%>
@@ -89,7 +89,7 @@
                     <div class="iq-top-ten-block">
                       <div class="block-image position-relative">
                         <div class="img-box" style="height: 220px">
-                        <%= link_to image_tag("placeholder_1.png", width: "100%", height: "100%"), film_path(film) %>
+                        <%= link_to image_tag("films/#{film.title}.jpg", class: "w-100 h-100"), film_path(film) %>
                         </div>
                       </div>
                     </div>
@@ -171,33 +171,33 @@
                 <div id="all" class="tab-pane animated fadeInUp active show" role="tabpanel">
                   <div class="description-content">
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table" style="width: 100%;text-align: center">
                         <tbody>
                         <% @all_films.each_with_index do |film, index| %>
                           <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
-                            <td class="w-15"><%= image_tag("placeholder_1.png", class: "img-fluid person-img object-fit") %></td>
+                            <td class="w-15"><%= image_tag("films/#{film.title}.jpg", class: "img-fluid person-img object-fit") %></td>
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
                                 <span><%= index+1 %></span>
                                 <span class="text-capitalize"><%= film.title%></span>
                               </div>
                             </td>
-                            <td class="w-20">
-                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
-                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.slogan%>"</span></span>
+                            <td class="w-20" style="width: 100%;text-align: center">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500" style="width: 100%;text-align: center">
+                                <span class="text-capitalize" style="width: 100%;text-align: center"><span class="fw-normal text-body"><%= film.slogan%></span></span>
                               </div>
                             </td>
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
-                                <span class="text-capitalize"><%= film.genres.map(&:title).join(', ')%></span>
+                                <span class="text-capitalize" style="width: 100%;text-align: center"><%= film.genres.map(&:title).join(', ')%></span>
                               </div>
                             </td>
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
-                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.maturity_rating.title%>"</span></span>
+                                <span class="text-capitalize" style="width: 100%;text-align: center"><span class="fw-normal text-body">"<%= film.maturity_rating.title%>"</span></span>
                               </div>
                             </td>
-                            <td><span class="fw-500 font-size-18 text-white"><%= film.release_date.year %></span></td>
+                            <td><span class="fw-500 font-size-18 text-white" style="width: 100%;text-align: center"><%= film.release_date.year %></span></td>
                           </tr>
                         <% end %>
 <!--                        <tr>-->
