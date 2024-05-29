@@ -1,14 +1,147 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Films</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+  <style>
+      body {
+          background-image: url('https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp');
+          background-size: cover;
+          background-repeat: no-repeat;
+          position: relative;min-height:500px;
+          background-color: #2c2c2c;
+          color: #e0e0e0;
+          font-size: 16px;
+      }
+      .table-dark th {
+          background-color: #1e1e1e;
+          color: #ffffff;
+          text-align: center;
+      }
+      .table-dark td {
+          background-color: #3e3e3e;
+          color: #e0e0e0;
+          text-align: center;
+      }
+      .form-label, .form-select, .form-control {
+          color: #e0e0e0;
+          font-size: 16px;
+      }
+      .form-select {
+          background-color: #1e1e1e;
+          color: #e0e0e0;
+      }
+      .form-control {
+          background-color: #1e1e1e;
+      }
+      .filter-form {
+          background-color: #1f1f1f;
+          padding: 20px;
+          border-radius: 5px;
+          margin-bottom: 30px;
+      }
+      .container {
+          max-width: 900px;
+          margin: auto;
+      }
+      h1 {
+          font-size: 3.5rem;
+          color: whitesmoke;
+          text-align: center;
+      }
+      .btn-primary {
+          font-size: 1rem;
+      }
+      .form-group {
+          margin-bottom: 15px;
+      }
+  </style>
+</head>
+<body>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Films Search</h1>
 
-<h1>Films</h1>
+  <div class="filter-form mb-5">
+    <form method="get" action="<%= films_path %>">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" value="<%= params[:title] %>" placeholder="Enter title" style="width: 560px">
+        </div>
+        <div class="form-group">
+          <label for="genre_id" class="form-label">Genre</label>
+          <select id="genre_id" name="genre_id" class="form-select">
+            <option value="">Select Genre</option>
+            <% @genres.each do |genre| %>
+              <option value="<%= genre.id %>" <%= 'selected' if params[:genre_id].to_i == genre.id %>><%= genre.title %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="min_year" class="form-label">Min Year of Release</label>
+          <input type="number" class="form-control" id="min_year" name="min_year" value="<%= params[:min_year] %>" placeholder="Min year" min="1888" style="width: 445px">
+        </div>
+        <div class="form-group">
+          <label for="max_duration" class="form-label">Max Duration (minutes)</label>
+          <input type="number" class="form-control" id="max_duration" name="max_duration" value="<%= params[:max_duration] %>" placeholder="Max duration" min="1" style="width: 423px">
+        </div>
+        <div class="form-group">
+          <label for="maturity_rating_id" class="form-label">Maturity Rating</label>
+          <select id="maturity_rating_id" name="maturity_rating_id" class="form-select">
+            <option value="">Select Rating</option>
+            <% @maturity_ratings.each do |rating| %>
+              <option value="<%= rating.id %>" <%= 'selected' if params[:maturity_rating_id].to_i == rating.id %>><%= rating.title %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="filter_by" class="form-label">Filter By</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="filter_by" id="filter_by_year" value="year" <%= 'checked' if params[:filter_by] == 'year' %>>
+            <label class="form-check-label" for="filter_by_year">
+              Year of Release
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="filter_by" id="filter_by_rating" value="rating" <%= 'checked' if params[:filter_by] == 'rating' %>>
+            <label class="form-check-label" for="filter_by_rating">
+              Average Rating
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary w-100 mt-4">Filter</button>
+        </div>
+      </div>
+    </form>
+  </div>
 
-<div id="films">
-  <% @films.each do |film| %>
-    <%= render film %>
-    <p>
-      <%= link_to "Show this film", film %>
-    </p>
-  <% end %>
+  <table class="table table-dark table-striped">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Date of Release</th>
+      <th>Duration</th>
+      <th>Maturity Rating</th>
+      <th>Average Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @films.each do |film| %>
+      <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
+        <td><%= film.title %></td>
+        <td><%= film.genres.map(&:title).join(', ') %></td>
+        <td><%= film.release_date.strftime("%B %e, %Y") %></td>
+        <td><%= format_duration(film.duration) %></td>
+        <td><%= film.maturity_rating.title %></td>
+        <td><%= film.average_rating %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New film", new_film_path %>
+</body>
+</html>

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_509_211_239) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_172520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_509_211_239) do
     t.string "title"
     t.string "slogan"
     t.string "link"
-    t.date "release_year"
+    t.date "release_date"
     t.bigint "maturity_rating_id", null: false
     t.integer "duration"
     t.string "description"

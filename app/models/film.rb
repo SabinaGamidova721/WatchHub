@@ -10,8 +10,15 @@ class Film < ApplicationRecord
   has_many :ratings, dependent: :destroy
 
   has_many :cast_films, dependent: :destroy
+  has_many :casts, through: :cast_films
   has_many :country_films, dependent: :destroy
+  has_many :countries, through: :country_films
   has_many :genre_films, dependent: :destroy
+  has_many :genres, through: :genre_films
 
   has_one_attached :avatar
+
+  def average_rating
+    ratings.average(:score).to_f.round(2)
+  end
 end

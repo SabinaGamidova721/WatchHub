@@ -14,6 +14,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/new
   def new
     @user_profile = UserProfile.new
+    @user_profile.date_of_registration = Time.zone.now
     @user_profile.build_user
     @minimum_password_length = 6
   end
@@ -27,7 +28,8 @@ class UserProfilesController < ApplicationController
 
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to user_profile_url(@user_profile), notice: "User profile was successfully created." }
+        session[:user_id] = @user_profile.id
+        format.html { redirect_to home_path, notice: "User profile was successfully created" }
         format.json { render :show, status: :created, location: @user_profile }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +42,7 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update(user_profile_params)
-        format.html { redirect_to user_profile_url(@user_profile), notice: "User profile was successfully updated." }
+        format.html { redirect_to edit_user_profile_path(@user_profile), notice: "User profile was successfully updated." }
         format.json { render :show, status: :ok, location: @user_profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,10 +53,11 @@ class UserProfilesController < ApplicationController
 
   # DELETE /user_profiles/1 or /user_profiles/1.json
   def destroy
+    @user_profile.user.destroy!
     @user_profile.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_profiles_url, notice: "User profile was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "User profile was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -68,16 +71,36 @@ class UserProfilesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_profile_params
-    # params.require(:user_profile).permit(:nickname, :date_of_birth, :date_of_registration, :user_id, :avatar,
-    #                                      user_attributes: [:id, :email, :password])
+    # debugger
+    # return {} unless params[:user_profile].present?
+    # if params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present? && params[:user_profile][:user_attributes][:password_confirmation].present?
+    #   permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password, :password_confirmation]]
+    # elsif params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present?
+    #   permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password]]
+    # else
+    #   permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email]]
+    # end
+    # params.require(:user_profile).permit(permitted_params)
+    # debugger
 
-    permitted_params = if params[:user_profile][:user_attributes][:password].blank?
-                         [:nickname, :date_of_birth, :date_of_registration, :avatar, {user_attributes: %i[id email]}]
-                       else
-                         [:nickname, :date_of_birth, :date_of_registration, :avatar, {
-                           user_attributes: %i[id email password]
-                         }]
-                       end
-    params.require(:user_profile).permit(permitted_params)
+    # return {} unless params[:user_profile].present?
+    # if params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present?
+    #   permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password, :password_confirmation]]
+    # else
+    #   permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email]]
+    # end
+    # params.require(:user_profile).permit(permitted_params)
+    # debugger
+
+    if params[:user_profile].present?
+      if params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present?
+        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password]]
+      else
+        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email]]
+      end
+      params.require(:user_profile).permit(permitted_params)
+    else
+      {}
+    end
   end
 end

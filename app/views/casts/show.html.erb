@@ -1,10 +1,288 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" dir="ltr" style="--header-height: 54px;"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>StreamIT | Responsive Bootstrap 5 Template</title>
+  <!-- Google Font Api KEY-->
+  <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
 
-<%= render @cast %>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://templates.iqonic.design/streamit/html/frontend/assets/images/favicon.ico">
 
-<div>
-  <%= link_to "Edit this cast", edit_cast_path(@cast) %> |
-  <%= link_to "Back to casts", casts_path %>
+  <!-- Library / Plugin Css Build -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/core/libs.min.css">
 
-  <%= button_to "Destroy this cast", @cast, method: :delete %>
+  <!-- font-awesome css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/font-awesome/css/all.min.css">
+
+  <!-- Iconly css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/iconly/css/style.css">
+
+  <!-- Animate css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/animate.min.css">
+
+  <!-- SwiperSlider css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/swiperSlider/swiper.min.css">
+
+
+
+
+
+  <!-- Streamit Design System Css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/streamit.min.css?v=5.1.0">
+
+  <!-- Custom Css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/custom.min.css?v=5.1.0">
+
+  <!-- Rtl Css -->
+  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/rtl.min.css?v=5.1.0">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&amp;display=swap" rel="stylesheet">
+
+</head>
+
+<body class=" custom-header-relative ">
+<span class="screen-darken"></span>
+<!-- loader Start -->
+<!-- loader Start -->
+<div class="loader simple-loader animate__animated animate__fadeOut d-none">
+  <div class="loader-body">
+    <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/loader.gif" alt="loader" class="img-fluid " width="300">
+  </div>
 </div>
+<!-- loader END -->  <!-- loader END -->
+<main class="main-content">
+  <!--Nav Start-->
+  <!--bread-crumb-->
+  <!--bread-crumb-->
+
+  <div class="section-padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-5">
+          <div class="cast-box position-relative">
+            <%= image_tag("placeholder.png", class: "img-fluid object-cover w-100", loading: "lazy") %>
+          </div>
+          <h5 class="mt-3 mb-4 text-white fw-500">Personal Details</h5>
+          <h6 class="font-size-18 text-white fw-500">Born :</h6>
+          <div class="seperator d-flex align-items-center flex-wrap mb-3">
+            <span><%= @cast.date_of_birth.strftime("%B %e, %Y") %></span>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-7 mt-5 mt-md-0">
+          <h4 class="fw-500"><%= @cast.first_name%> <%= @cast.last_name %></h4>
+          <div class="seperator d-flex align-items-center flex-wrap mb-3">
+            <span class="fw-semibold"><%= @cast.role.title %></span>
+          </div>
+          <p><%= @cast.description %></p>
+          <div class="awards-box pb-0 mb-4 border-bottom">
+          </div>
+          <div class="pb-md-5 mt-3">
+            <h5 class="main-title text-capitalize mb-4" style="font-size: 32px">Most View Movies</h5>
+            <div class="position-relative swiper swiper-card iq-top-ten-block-slider swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="6" data-laptop="6" data-tab="3" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="false" data-navigation="true" data-pagination="true">
+              <ul class="p-0 swiper-wrapper mb-5 list-inline" id="swiper-wrapper-89f6aa5889fa2af7" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                <% @top_films.each do |film|%>
+                  <li class="swiper-slide" role="group" style="width: 318.667px;">
+                    <div class="iq-top-ten-block">
+                      <div class="block-image position-relative">
+                        <div class="img-box" style="height: 220px">
+                        <%= link_to image_tag("placeholder_1.png", width: "100%", height: "100%"), film_path(film) %>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+<!--                <li class="swiper-slide swiper-active swiper-slide-active" role="group" aria-label="1 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/01.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="swiper-slide swiper-active swiper-slide-next" role="group" aria-label="2 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/02.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="swiper-slide swiper-active" role="group" aria-label="3 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/03.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="swiper-slide swiper-active" role="group" aria-label="4 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/04.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="swiper-slide swiper-active last" role="group" aria-label="5 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/05.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>               </li>-->
+<!--                <li class="swiper-slide" role="group" aria-label="6 / 10" style="width: 318.667px;">-->
+<!--                  <div class="iq-top-ten-block">-->
+<!--                    <div class="block-image position-relative">-->
+<!--                      <div class="img-box">-->
+<!--                        <a class="overly-images" href="./movie-detail.html">-->
+<!--                          <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/top-ten-number/06.webp" alt="movie-card" class="img-fluid object-cover">-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+              </ul>
+              <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-89f6aa5889fa2af7" aria-disabled="false"></div>
+              <div class="swiper-button swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-89f6aa5889fa2af7" aria-disabled="true"></div>
+              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+            <div class="content-details trending-info">
+              <h5 class="main-title text-capitalize mb-4" style="text-align: center">All Movies</h5>
+              <div class="tab-content">
+                <div id="all" class="tab-pane animated fadeInUp active show" role="tabpanel">
+                  <div class="description-content">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                        <% @all_films.each_with_index do |film, index| %>
+                          <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
+                            <td class="w-15"><%= image_tag("placeholder_1.png", class: "img-fluid person-img object-fit") %></td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span><%= index+1 %></span>
+                                <span class="text-capitalize"><%= film.title%></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.slogan%>"</span></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><%= film.genres.map(&:title).join(', ')%></span>
+                              </div>
+                            </td>
+                            <td class="w-20">
+                              <div class="font-size-18 d-flex gap-4 text-white fw-500">
+                                <span class="text-capitalize"><span class="fw-normal text-body">"<%= film.maturity_rating.title%>"</span></span>
+                              </div>
+                            </td>
+                            <td><span class="fw-500 font-size-18 text-white"><%= film.release_date.year %></span></td>
+                          </tr>
+                        <% end %>
+<!--                        <tr>-->
+<!--                          <td class="w-15"><img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/movies/latest/01.webp" alt="image-icon" class="img-fluid person-img object-cover"></td>-->
+<!--                          <td class="w-20">-->
+<!--                            <div class="font-size-18 d-flex gap-4 text-white fw-500">-->
+<!--                              <span>1</span>-->
+<!--                              <span class="text-capitalize">Mortal Norris <span class="fw-normal text-body">as Christina-->
+<!--                                Ricci</span></span>-->
+<!--                            </div>-->
+<!--                          </td>-->
+<!--                          <td><span class="fw-500 font-size-18 text-white">2009</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td class="w-15"><img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/movies/latest/02.webp" alt="image-icon" class="img-fluid person-img object-cover"></td>-->
+<!--                          <td class="w-20">-->
+<!--                            <div class="font-size-18 d-flex gap-4 text-white fw-500">-->
+<!--                              <span>2</span>-->
+<!--                              <span class="text-capitalize">Advetre <span class="fw-normal text-body">as Christina Ricci</span></span>-->
+<!--                            </div>-->
+<!--                          </td>-->
+<!--                          <td><span class="fw-500 font-size-18 text-white">2009</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td class="w-15"><img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/movies/latest/03.webp" alt="image-icon" class="img-fluid person-img object-cover"></td>-->
+<!--                          <td class="w-20">-->
+<!--                            <div class="font-size-18 d-flex gap-4 text-white fw-500">-->
+<!--                              <span>3</span>-->
+<!--                              <span class="text-capitalize">Net Ailo <span class="fw-normal text-body">as Christina-->
+<!--                                Ricci</span></span>-->
+<!--                            </div>-->
+<!--                          </td>-->
+<!--                          <td><span class="fw-500 font-size-18 text-white">2009</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td class="w-15"><img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/movies/latest/04.webp" alt="image-icon" class="img-fluid person-img object-cover"></td>-->
+<!--                          <td class="w-20">-->
+<!--                            <div class="font-size-18 d-flex gap-4 text-white fw-500">-->
+<!--                              <span>4</span>-->
+<!--                              <span class="text-capitalize">Ariivaal <span class="fw-normal text-body">as Christina Ricci-->
+<!--                                (3 Seasons)</span></span>-->
+<!--                            </div>-->
+<!--                          </td>-->
+<!--                          <td><span class="fw-500 font-size-18 text-white">2009</span></td>-->
+<!--                        </tr>-->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<!-- Wrapper End-->
+<!-- Library Bundle Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/core/libs.min.js" type="text/javascript"></script>
+<!-- Plugin Scripts -->
+
+
+<!-- SwiperSlider Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/swiperSlider/swiper.min.js" type="text/javascript"></script>
+
+
+
+
+<!-- Lodash Utility -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/lodash/lodash.min.js" type="text/javascript"></script>
+<!-- External Library Bundle Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/core/external.min.js" type="text/javascript"></script>
+<!-- countdown Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/plugins/countdown.js" type="text/javascript"></script>
+<!-- utility Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/utility.js" type="text/javascript"></script>
+<!-- Setting Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/setting.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/setting-init.js" defer="" type="text/javascript"></script>
+<!-- Streamit Script -->
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/streamit.js" defer="" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/swiper.js" defer="" type="text/javascript"></script>
+
+
+</body></html>

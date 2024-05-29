@@ -1,0 +1,16 @@
+--- MATURITY: ---
+
+> Title: 0+
+> Description: You can watch it with your whole family and enjoy it.
+
+> Title: 6+
+> Description: You can watch with the whole family, children can ask questions and be distracted.
+
+> Title: 12+
+> Description: Mature themes and concepts, but the themes are not explored.
+
+> Title: 16+
+> Description: For the more mature and understanding.
+
+> Title: 18+
+> Description: Adults only.
