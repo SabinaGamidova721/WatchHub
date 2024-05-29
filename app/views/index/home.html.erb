@@ -115,7 +115,11 @@
                           </div>
                           <h1 class="texture-text big-font letter-spacing-1 line-count-1 text-capitalize RightAnimate-two">
                             <%= film.title %> </h1>
-                          <p class="line-count-3 RightAnimate-two"><%= film.description %>.</p>
+                          <p class="line-count-3 RightAnimate-two" style="font-weight:bold;text-shadow:
+                            0.07em 0 black,
+                              0 0.07em black,
+                              -0.07em 0 black,
+                              0 -0.07em black;"><%= film.description %>.</p>
                           <div class="d-flex flex-wrap align-items-center gap-3 RightAnimate-three">
                             <div class="slider-ratting d-flex align-items-center">
 <!--                              <ul class="ratting-start p-0 m-0 list-inline text-warning d-flex align-items-center justify-content-left">-->
@@ -124,7 +128,11 @@
 <!--                                </li>-->
 <!--                              </ul>-->
                             </div>
-                            <span class="font-size-24 fw-500"><%= "Duration:#{format_duration(film.duration)}" %></span>
+                            <span class="font-size-24 fw-500" style="text-shadow:
+                              0.07em 0 black,
+                                0 0.07em black,
+                                -0.07em 0 black,
+                                0 -0.07em black;"><%= "Duration:#{format_duration(film.duration)}" %></span>
                           </div>
                         </div>
                         <div class="RightAnimate-four">
