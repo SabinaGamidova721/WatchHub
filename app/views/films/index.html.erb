@@ -123,8 +123,8 @@
     <tr>
       <th>Title</th>
       <th>Genre</th>
-      <th>Year of Release</th>
-      <th>Duration (minutes)</th>
+      <th>Date of Release</th>
+      <th>Duration</th>
       <th>Maturity Rating</th>
       <th>Average Rating</th>
     </tr>
@@ -134,8 +134,8 @@
       <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
         <td><%= film.title %></td>
         <td><%= film.genres.map(&:title).join(', ') %></td>
-        <td><%= film.release_year.year %></td>
-        <td><%= film.duration %></td>
+        <td><%= film.release_date.strftime("%B %e, %Y") %></td>
+        <td><%= format_duration(film.duration) %></td>
         <td><%= film.maturity_rating.title %></td>
         <td><%= film.average_rating %></td>
       </tr>
