@@ -6,4 +6,8 @@ module ApplicationHelper
     minutes %= 60
     "#{hours} hours #{minutes} minutes"
   end
+
+  def active_class(link_path)
+    current_page?(link_path) ? 'active' : ''
+  end
 end
