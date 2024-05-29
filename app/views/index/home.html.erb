@@ -530,7 +530,7 @@
 <!--                <div class="iq-top-ten-block">-->
 <!--                  <div class="block-image position-relative">-->
 <!--                    <div class="img-box">-->
-                      <%#= link_to image_tag("placeholder_1.png"), film_path(film), class: "overly-images img-fluid object-cover" %>
+                      <%#= link_to image_tag("films/#{film.title}.jpg", height: "330"), film_path(film) %>
 <!--                      <span class="top-ten-numbers texture-text"><%#= index+1 %></span>-->
 <!--                    </div>-->
 <!--                  </div>-->
@@ -586,7 +586,6 @@
                 </div>
               </div>
             </li>
-            <!--from template-->
             <li class="swiper-slide swiper-active last" role="group" aria-label="5 / 10" style="width: 318.667px;">
               <div class="iq-top-ten-block">
                 <div class="block-image position-relative">
@@ -781,51 +780,53 @@
     </div>
   </div>
 
-  <div class="favourite-person-block">
-    <div class="container-fluid">
-      <section class="overflow-hidden">
-        <div class="d-flex align-items-center justify-content-between px-md-3 px-1 my-4">
-          <h5 class="main-title text-capitalize mb-0">MyTest</h5>
-          <a href="all-personality.html" class="text-primary iq-view-all text-decoration-none">View All</a>
-        </div>
-        <div class="position-relative swiper swiper-card swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="5" data-laptop="4" data-tab="4" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="true" data-navigation="true" data-pagination="true">
-          <ul class="p-0 swiper-wrapper m-0  list-inline personality-card" id="swiper-wrapper-28b198b47109ea816" aria-live="polite" style="transform: translate3d(-926px, 0px, 0px); transition-duration: 0ms;">
-            <% @casts.each do |cast|%>
-              <li class="swiper-slide swiper-active swiper-slide-active" role="group" style="width: 231.5px;">
-              <%= image_tag("placeholder.png", class: 'img-fit object-cover mb-4 rounded') %>
-              <div class="text-center">
-                <h6 class="mb-0">
-                  <%= link_to cast.last_name, cast_path(cast), class: "font-size-14 text-decoration-none cast-title text-capitalize" %>
-                </h6>
-                <%= link_to cast.role.title, cast_path(cast), class: "font-size-14 text-decoration-none text-capitalize text-body" %>
-              </div>
-              </li>
-            <% end %>
-            <li class="swiper-slide swiper-active swiper-slide-active" role="group" aria-label="1 / 12" style="width: 231.5px;" data-swiper-slide-index="0">
-              <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/cast/01.webp" alt="personality" class="img-fluid object-cover mb-4 rounded">
-              <div class="text-center">
-                <h6 class="mb-0">
-                  <a href="person-detail.html" class="font-size-14 text-decoration-none cast-title text-capitalize">john Abraham</a>
-                </h6>
-                <a href="cast-category.html" class="font-size-14 text-decoration-none text-capitalize text-body">actor</a>
-              </div>
-            </li>
-            <li class="swiper-slide swiper-active swiper-slide-next" role="group" aria-label="2 / 12" style="width: 231.5px;" data-swiper-slide-index="1">
-              <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/cast/02.webp" alt="personality" class="img-fluid object-cover mb-4 rounded">
-              <div class="text-center">
-                <h6 class="mb-0">
-                  <a href="person-detail.html" class="font-size-14 text-decoration-none cast-title text-capitalize">Leena burton</a>
-                </h6>
-                <a href="cast-category.html" class="font-size-14 text-decoration-none text-capitalize text-body">actress</a>
-              </div>
-            </li>
-          </ul>
-          <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-28b198b47109ea816"></div>
-          <div class="swiper-button swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-28b198b47109ea816"></div>
-          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-      </section>
-    </div>
-  </div>
+<!--  <div class="favourite-person-block">-->
+<!--    <div class="container-fluid">-->
+<!--      <section class="overflow-hidden">-->
+<!--        <div class="d-flex align-items-center justify-content-between px-md-3 px-1 my-4">-->
+<!--          <h5 class="main-title text-capitalize mb-0">MyTest</h5>-->
+<!--          <a href="all-personality.html" class="text-primary iq-view-all text-decoration-none">View All</a>-->
+<!--        </div>-->
+<!--        <div class="position-relative swiper swiper-card swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="10" data-laptop="4" data-tab="4" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="true" data-navigation="true" data-pagination="true">-->
+<!--          <ul class="p-0 swiper-wrapper m-0  list-inline personality-card" id="swiper-wrapper-28b198b47109ea816" aria-live="polite" style="transform: translate3d(-926px, 0px, 0px); transition-duration: 0ms;">-->
+            <%# @casts.each do |cast|%>
+<!--              <li class="swiper-slide swiper-active swiper-slide-active" role="group" style="width: 231.5px;">-->
+              <%#= image_tag("cast/#{cast.first_name} #{cast.last_name}.jpg", class: 'img-fit object-fit mb-4 rounded', height: "200") %>
+<!--              <div class="text-center">-->
+<!--                <h6 class="mb-0">-->
+                  <%#= link_to "#{cast.first_name} #{cast.last_name}", cast_path(cast), class: "font-size-14 text-decoration-none cast-title text-capitalize" %>
+<!--                </h6>-->
+                <%#= link_to cast.role.title, cast_path(cast), class: "font-size-14 text-decoration-none text-capitalize text-body" %>
+<!--              </div>-->
+<!--              </li>-->
+            <%# end %>
+<!--            TEMPLATE -->
+<!--            <li class="swiper-slide swiper-active swiper-slide-active" role="group" aria-label="1 / 12" style="width: 231.5px;" data-swiper-slide-index="0">-->
+<!--              <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/cast/01.webp" alt="personality" class="img-fluid object-cover mb-4 rounded">-->
+<!--              <div class="text-center">-->
+<!--                <h6 class="mb-0">-->
+<!--                  <a href="person-detail.html" class="font-size-14 text-decoration-none cast-title text-capitalize">john Abraham</a>-->
+<!--                </h6>-->
+<!--                <a href="cast-category.html" class="font-size-14 text-decoration-none text-capitalize text-body">actor</a>-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="swiper-slide swiper-active swiper-slide-next" role="group" aria-label="2 / 12" style="width: 231.5px;" data-swiper-slide-index="1">-->
+<!--              <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/cast/02.webp" alt="personality" class="img-fluid object-cover mb-4 rounded">-->
+<!--              <div class="text-center">-->
+<!--                <h6 class="mb-0">-->
+<!--                  <a href="person-detail.html" class="font-size-14 text-decoration-none cast-title text-capitalize">Leena burton</a>-->
+<!--                </h6>-->
+<!--                <a href="cast-category.html" class="font-size-14 text-decoration-none text-capitalize text-body">actress</a>-->
+<!--              </div>-->
+<!--            </li>-->
+            <!--            TEMPLATE -->
+<!--          </ul>-->
+<!--          <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-28b198b47109ea816"></div>-->
+<!--          <div class="swiper-button swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-28b198b47109ea816"></div>-->
+<!--          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>-->
+<!--      </section>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="movie-geners-block">
     <div class="container-fluid">

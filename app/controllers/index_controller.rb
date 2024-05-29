@@ -2,10 +2,13 @@ class IndexController < ApplicationController
 
   def home
     current_user = set_current_user
-    @top_rated_films = Film.joins(:ratings).group('films.id').order('AVG(ratings.score) DESC').limit(3)
-    @top_ten = Film.limit(10)
+    @top_ten = Film.left_joins(:ratings)
+                           .group('films.id')
+                           .order(Arel.sql('COALESCE(AVG(ratings.score), 0) DESC, COUNT(ratings.id) DESC'))
+                           .limit(10)
+    @top_rated_films = @top_ten.limit(3)
     @genres = Genre.includes(:films).all
-    @casts = Cast.limit(10)
+    @casts = Cast.order('RANDOM()').limit(10)
   end
 
   def startpage
