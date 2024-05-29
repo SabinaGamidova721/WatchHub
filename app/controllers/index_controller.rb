@@ -9,7 +9,7 @@ class IndexController < ApplicationController
                    .limit(10)
     @top_rated_films = @top_ten.limit(3)
     @genres = Genre.includes(:films).all
-    @casts = Cast.order("RANDOM()").limit(10)
+    @casts = Cast.order("RANDOM()").limit(15)
   end
 
   def startpage; end

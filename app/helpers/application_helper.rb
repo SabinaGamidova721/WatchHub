@@ -7,6 +7,10 @@ module ApplicationHelper
     "#{hours} hours #{minutes} minutes"
   end
 
+  def active_class(link_path)
+    current_page?(link_path) ? 'active' : ''
+  end
+
   def asset_exists?(path)
     if Rails.application.assets
       Rails.application.assets.find_asset(path).present?
