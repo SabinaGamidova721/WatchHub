@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :cast_films do
   desc "Seed casts for films"
   task cast_films: :environment do

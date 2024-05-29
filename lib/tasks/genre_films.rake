@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :genre_films do
   desc "Seed genres for films"
   task genre_films: :environment do
@@ -32,9 +34,12 @@ namespace :genre_films do
       {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
       {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
       # Lara Croft: Tomb Raider – The Cradle of Life
-      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
-      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
-      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Adventure").id,
+       film_id:  films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Fantasy").id,
+       film_id:  films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Action").id,
+       film_id:  films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
       # James Bond 007: Spectre
       {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
       {genre_id: genres.find_by(title: "Thriller").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
@@ -50,12 +55,17 @@ namespace :genre_films do
       {genre_id: genres.find_by(title: "Melodrama").id, film_id: films.find_by(title: "Beauty and the Beast").id},
       {genre_id: genres.find_by(title: "Musical").id, film_id: films.find_by(title: "Beauty and the Beast").id},
       # Harry Potter and the Philosopher's Stone
-      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Harry Potter and the Philosopher's Stone").id},
-      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Harry Potter and the Philosopher's Stone").id},
+      {genre_id: genres.find_by(title: "Fantasy").id,
+       film_id:  films.find_by(title: "Harry Potter and the Philosopher's Stone").id},
+      {genre_id: genres.find_by(title: "Adventure").id,
+       film_id:  films.find_by(title: "Harry Potter and the Philosopher's Stone").id},
       # Charlie and the Chocolate Factory
-      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
-      {genre_id: genres.find_by(title: "Comedy").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
-      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
+      {genre_id: genres.find_by(title: "Fantasy").id,
+       film_id:  films.find_by(title: "Charlie and the Chocolate Factory").id},
+      {genre_id: genres.find_by(title: "Comedy").id,
+       film_id:  films.find_by(title: "Charlie and the Chocolate Factory").id},
+      {genre_id: genres.find_by(title: "Adventure").id,
+       film_id:  films.find_by(title: "Charlie and the Chocolate Factory").id},
       # Hachi: A Dog's Tale
       {genre_id: genres.find_by(title: "Drama").id, film_id: films.find_by(title: "Hachi - A Dog's Tale").id}
     ]

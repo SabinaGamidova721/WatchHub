@@ -42,7 +42,9 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update(user_profile_params)
-        format.html { redirect_to edit_user_profile_path(@user_profile), notice: "User profile was successfully updated." }
+        format.html {
+          redirect_to edit_user_profile_path(@user_profile), notice: "User profile was successfully updated."
+        }
         format.json { render :show, status: :ok, location: @user_profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -94,9 +96,11 @@ class UserProfilesController < ApplicationController
 
     if params[:user_profile].present?
       if params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present?
-        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email, :password]]
+        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, {
+          user_attributes: %i[id email password]
+        }]
       else
-        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, user_attributes: [:id, :email]]
+        permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, {user_attributes: %i[id email]}]
       end
       params.require(:user_profile).permit(permitted_params)
     else

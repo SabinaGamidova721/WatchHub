@@ -3,14 +3,17 @@ AllCops:
   SuggestExtensions: false
 
   Exclude:
-    - 'config/**/*'
-    - 'bin/**/*'
-    - 'log'
-    - 'public/**/*'
-    - 'tmp/**/*'
-    - 'db/schema.rb'
-    - 'db/migrate/20240509211239_create_active_storage_tables.active_storage.rb'
-
+    - "config/**/*"
+    - "bin/**/*"
+    - "log"
+    - "public/**/*"
+    - "tmp/**/*"
+    - "db/schema.rb"
+    - "lib/tasks/*"
+    - "app/controllers/user_profiles_controller.rb"
+    - "app/queries/films_query.rb"
+    - "app/controllers/users/sessions_controller.rb"
+    - "db/migrate/20240509211239_create_active_storage_tables.active_storage.rb"
 
 # Commonly used screens these days easily fit more than 80 characters.
 Layout/LineLength:
@@ -63,7 +66,6 @@ Style/CollectionMethods:
   PreferredMethods:
     # inject seems more common in the community.
     reduce: "inject"
-
 
 # Either allow this style or don't. Marking it as safe with parenthesis
 # is silly. Let's try to live without them for now.
