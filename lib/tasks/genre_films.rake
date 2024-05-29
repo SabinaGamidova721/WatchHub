@@ -28,16 +28,16 @@ namespace :genre_films do
       {genre_id: genres.find_by(title: "Comedy").id, film_id: films.find_by(title: "Mr. & Mrs. Smith").id},
       {genre_id: genres.find_by(title: "Melodrama").id, film_id: films.find_by(title: "Mr. & Mrs. Smith").id},
       # Lara Croft: Tomb Raider
-      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
+      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
       # Lara Croft: Tomb Raider – The Cradle of Life
-      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Fantasy").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
       # James Bond 007: Spectre
-      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "James Bond 007: Spectre").id},
-      {genre_id: genres.find_by(title: "Thriller").id, film_id: films.find_by(title: "James Bond 007: Spectre").id},
+      {genre_id: genres.find_by(title: "Action").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
+      {genre_id: genres.find_by(title: "Thriller").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
       # Jurassic Park
       {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Jurassic Park").id},
       {genre_id: genres.find_by(title: "Fantastic").id, film_id: films.find_by(title: "Jurassic Park").id},
@@ -57,7 +57,7 @@ namespace :genre_films do
       {genre_id: genres.find_by(title: "Comedy").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       {genre_id: genres.find_by(title: "Adventure").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       # Hachi: A Dog's Tale
-      {genre_id: genres.find_by(title: "Drama").id, film_id: films.find_by(title: "Hachi: A Dog's Tale").id}
+      {genre_id: genres.find_by(title: "Drama").id, film_id: films.find_by(title: "Hachi - A Dog's Tale").id}
     ]
 
     GenreFilm.create(genre_films_data)

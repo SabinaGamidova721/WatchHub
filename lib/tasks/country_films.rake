@@ -20,18 +20,18 @@ namespace :country_films do
       # Mr. & Mrs. Smith
       {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Mr. & Mrs. Smith").id},
       # Lara Croft: Tomb Raider
-      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {country_id: countries.find_by(country_name: "Japan").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {country_id: countries.find_by(country_name: "Germany").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
+      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {country_id: countries.find_by(country_name: "Japan").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {country_id: countries.find_by(country_name: "Germany").id, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
       # Lara Croft: Tomb Raider – The Cradle of Life
-      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {country_id: countries.find_by(country_name: "Japan").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {country_id: countries.find_by(country_name: "Germany").id, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
+      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {country_id: countries.find_by(country_name: "Japan").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {country_id: countries.find_by(country_name: "Germany").id, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
       # James Bond 007: Spectre
-      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "James Bond 007: Spectre").id},
-      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "James Bond 007: Spectre").id},
+      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
+      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "James Bond 007-Spectre").id},
       # Jurassic Park
       {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Jurassic Park").id},
       # Terminator
@@ -45,8 +45,8 @@ namespace :country_films do
       # Charlie and the Chocolate Factory
       {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       # Hachi: A Dog's Tale
-      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Hachi: A Dog's Tale").id},
-      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Hachi: A Dog's Tale").id}
+      {country_id: countries.find_by(country_name: "United Kingdom").id, film_id: films.find_by(title: "Hachi - A Dog's Tale").id},
+      {country_id: countries.find_by(country_name: "United States").id, film_id: films.find_by(title: "Hachi - A Dog's Tale").id}
     ]
 
     CountryFilm.create(country_films_data)

@@ -31,17 +31,17 @@ namespace :cast_films do
       {cast_id: 12, film_id: films.find_by(title: "Mr. & Mrs. Smith").id},
       {cast_id: 33, film_id: films.find_by(title: "Mr. & Mrs. Smith").id},
       # Lara Croft: Tomb Raider
-      {cast_id: 12, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {cast_id: 13, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
-      {cast_id: 34, film_id: films.find_by(title: "Lara Croft: Tomb Raider").id},
+      {cast_id: 12, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {cast_id: 13, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
+      {cast_id: 34, film_id: films.find_by(title: "Lara Croft - Tomb Raider").id},
       # Lara Croft: Tomb Raider – The Cradle of Life
-      {cast_id: 12, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {cast_id: 14, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
-      {cast_id: 35, film_id: films.find_by(title: "Lara Croft: Tomb Raider – The Cradle of Life").id},
+      {cast_id: 12, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {cast_id: 14, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
+      {cast_id: 35, film_id: films.find_by(title: "Lara Croft Tomb Raider – The Cradle of Life").id},
       # James Bond 007: Spectre
-      {cast_id: 13, film_id: films.find_by(title: "James Bond 007: Spectre").id},
-      {cast_id: 15, film_id: films.find_by(title: "James Bond 007: Spectre").id},
-      {cast_id: 36, film_id: films.find_by(title: "James Bond 007: Spectre").id},
+      {cast_id: 13, film_id: films.find_by(title: "James Bond 007-Spectre").id},
+      {cast_id: 15, film_id: films.find_by(title: "James Bond 007-Spectre").id},
+      {cast_id: 36, film_id: films.find_by(title: "James Bond 007-Spectre").id},
       # Jurassic Park
       {cast_id: 16, film_id: films.find_by(title: "Jurassic Park").id},
       {cast_id: 17, film_id: films.find_by(title: "Jurassic Park").id},
@@ -67,8 +67,8 @@ namespace :cast_films do
       {cast_id: 28, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       {cast_id: 40, film_id: films.find_by(title: "Charlie and the Chocolate Factory").id},
       # Hachi: A Dog's Tale
-      {cast_id: 1, film_id: films.find_by(title: "Hachi: A Dog's Tale").id},
-      {cast_id: 41, film_id: films.find_by(title: "Hachi: A Dog's Tale").id}
+      {cast_id: 1, film_id: films.find_by(title: "Hachi - A Dog's Tale").id},
+      {cast_id: 41, film_id: films.find_by(title: "Hachi - A Dog's Tale").id}
     ]
 
     CastFilm.create(cast_films_data)
