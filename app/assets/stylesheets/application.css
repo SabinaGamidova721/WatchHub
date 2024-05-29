@@ -35,3 +35,11 @@ a:visited {
   font-weight: normal; /* Устанавливаем обычный (ненасыщенный) вес шрифта */
   line-height: 1.5; /* Задаем высоту строки для лучшей читаемости */
 }
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

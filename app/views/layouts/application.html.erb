@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html data-bs-theme="dark">
-<html>
   <head>
     <title>WatchHub</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
@@ -21,16 +20,16 @@
     <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="https://templates.iqonic.design/streamit/html/frontend/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="https://templates.iqonic.design/streamit/html/frontend/assets/images/favicon.ico">
     
     <!-- Library / Plugin Css Build -->
-    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/core/libs.min.css" />
+    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/core/libs.min.css">
     
     <!-- font-awesome css -->
-    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/font-awesome/css/all.min.css">
     
     <!-- Iconly css -->
-    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/iconly/css/style.css" />
+    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/iconly/css/style.css">
     
     <!-- Animate css -->
     <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/animate.min.css" />
@@ -45,14 +44,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap" rel="stylesheet">
+  
+    <!-- SwiperSlider css -->
+    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/swiperSlider/swiper.min.css">
+
+    <!-- Rtl Css -->
+    <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/rtl.min.css?v=5.1.0">
   </head>
 
   <body>
-<!-- <span class="screen-darken"></span>
-<main class="main-content"> -->
-    <%= render 'layouts/header' %>
+    <% if @show_header %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    
     <%= yield %>
-    <%= render 'layouts/footer' %>
-<!-- </main> -->
+    <%= render 'layouts/footer', footer_class: (@show_footer ? 'visible' : 'hidden') %>
   </body>
 </html>
