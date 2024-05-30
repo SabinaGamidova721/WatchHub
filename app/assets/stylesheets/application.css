@@ -64,3 +64,9 @@ a:visited {
   position: relative;
   z-index: 2;
 }
+
+.star {
+  color: gold;
+  font-size: 36px;
+  margin-right: 1px;
+}
