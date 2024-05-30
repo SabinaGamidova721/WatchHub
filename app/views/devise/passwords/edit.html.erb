@@ -1,25 +1,66 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<body class="  ">
+<span class="screen-darken"></span>
+<div class="loader simple-loader animate__animated animate__fadeOut d-none">
+  <div class="loader-body">
+    <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/loader.gif" alt="loader" class="img-fluid " width="300">
   </div>
+</div>
+<main class="main-content">
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="vh-100" style="background: url('https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp'); background-size: cover; background-repeat: no-repeat; position: relative;min-height:500px">
+    <div class="container">
+      <div class="row justify-content-center align-items-center height-self-center vh-100">
+        <div class="col-lg-5 col-md-12 align-self-center">
+          <div class="user-login-card bg-body">
+            <div class="text-center">
+              <div class="logo-default">
+                <a class="navbar-brand text-primary" style="font-size: 32px;">
+                  Change your password
+                </a>
+              </div>
+            </div>
+
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <%= f.hidden_field :reset_password_token %>
+
+              <div class="mb-3" style="min-width: 600px;margin-top: 20px">
+                <%= f.label :password, "New password", class: "text-white fw-500 mb-2" %><br />
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                <% end %>
+                <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;"%>
+              </div>
+
+              <div class="mb-3" style="min-width: 600px;">
+                <%= f.label :password_confirmation, "Confirm new password", class: "text-white fw-500 mb-2" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;" %>
+              </div>
+
+
+              <div class="full-button">
+                <div class="iq-button">
+                  <div class="actions">
+                    <%= f.submit "Change my password", class: "btn text-uppercase position-relative", style: "text-decoration: none; height: 50px;" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</main>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/core/libs.min.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/lodash/lodash.min.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/core/external.min.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/plugins/countdown.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/utility.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/setting.js" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/setting-init.js" defer="" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/streamit.js" defer="" type="text/javascript"></script>
+<script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/swiper.js" defer="" type="text/javascript"></script>
 
-<%= render "devise/shared/links" %>
+</body>

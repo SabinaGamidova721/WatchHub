@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       "/",
       "/users/sign_in",
       "/user_profiles/new",
+      "/users/password/edit",
       "/users/password/new",
       "/users/confirmation"
     ]
