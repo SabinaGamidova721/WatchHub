@@ -91,6 +91,8 @@
         <!-- Account details -->
         <div class="col-md-8 offset-lg-1 pb-5 mb-2 mb-lg-4 pt-md-5 mt-n3 mt-md-0">
           <div class="ps-md-3 ps-lg-0 mt-md-2 py-md-4">
+            <p class="title-md" style="color: green"><%= notice %></p>
+            <p class="title-md" style="color: red"><%= alert %></p>
             <h1 class="h2 pt-xl-1 pb-3">Account Details</h1>
 
             <!-- Basic info -->
@@ -139,28 +141,28 @@
                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-6 mb-4">
-                      <%= user_fields.label :password, class: "form-label fs-base"  %> <i>(leave blank if you don't want to change it)</i><br />
-                      <%= user_fields.password_field :password, autocomplete: "new-password", id: "user_password", class: "form-control form-control-lg", style: "width: 400px;" %>
-                      <% if @minimum_password_length %>
-                        <br />
-                        <em><%= @minimum_password_length %> characters minimum</em>
-                      <% end %>
-                    </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-sm-6 mb-4">-->
+<!--                      <%#= user_fields.label :password, class: "form-label fs-base"  %> <i>(leave blank if you don't want to change it)</i><br />-->
+                      <%#= user_fields.password_field :password, autocomplete: "new-password", id: "user_password", class: "form-control form-control-lg", style: "width: 400px;" %>
+                      <%# if @minimum_password_length %>
+<!--                        <br />-->
+<!--                        <em><%#= @minimum_password_length %> characters minimum</em>-->
+                      <%# end %>
+<!--                    </div>-->
 
-                    <div class="col-sm-6 mb-4">
-                      <%= user_fields.label :password_confirmation, class: "form-label fs-base"  %><br />
-                      <%= user_fields.password_field :password_confirmation, autocomplete: "new-password", id: "user_password_confirmation", class: "form-control form-control-lg", style: "width: 400px;" %>
-                    </div>
-                </div>
+<!--                    <div class="col-sm-6 mb-4">-->
+<!--                      <%#= user_fields.label :password_confirmation, class: "form-label fs-base"  %><br />-->
+                      <%#= user_fields.password_field :password_confirmation, autocomplete: "new-password", id: "user_password_confirmation", class: "form-control form-control-lg", style: "width: 400px;" %>
+<!--                    </div>-->
+<!--                </div>-->
 
-                <div class="row">
-                  <div class="col-sm-6 mb-4">
-                    <%= user_fields.label :current_password, class: "form-label fs-base"  %> <i>(we need your current password to confirm your changes)</i><br />
-                    <%= user_fields.password_field :current_password, autocomplete: "current-password", id: "user_current_password", class: "form-control form-control-lg", style: "width: 400px;" %>
-                  </div>
-                </div>  
+<!--                <div class="row">-->
+<!--                  <div class="col-sm-6 mb-4">-->
+<!--                    <%#= user_fields.label :current_password, class: "form-label fs-base"  %> <i>(we need your current password to confirm your changes)</i><br />-->
+                    <%#= user_fields.password_field :current_password, autocomplete: "current-password", id: "user_current_password", class: "form-control form-control-lg", style: "width: 400px;" %>
+<!--                  </div>-->
+<!--                </div>-->
 
                 <% end %>
 
@@ -168,9 +170,52 @@
                   <%= form.submit "Update" %>
                 </div>
               <% end %>
-
-              
           </div>
+
+            <h2 class="h5 text-primary mt-5 mb-4">Sensitive info</h2>
+
+            <div id="profile-info" class="row pb-2">
+              <%= form_with(model: user_profile.user) do |form| %>
+                <% if user_profile.user.errors.any? %>
+                  <div style="color: red">
+                    <h2><%= pluralize(user_profile.user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                    <ul>
+                      <% user_profile.user.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <div class="row">
+                  <div class="col-sm-6 mb-4">
+                    <%= form.label :password, class: "form-label fs-base"  %> <i>(leave blank if you don't want to change it)</i><br />
+                    <%= form.password_field :password, autocomplete: "new-password", id: "user_password", class: "form-control form-control-lg", style: "width: 400px;" %>
+                    <% if @minimum_password_length %>
+                      <br />
+                      <em><%= @minimum_password_length %> characters minimum</em>
+                    <% end %>
+                  </div>
+
+                  <div class="col-sm-6 mb-4">
+                    <%= form.label :password_confirmation, class: "form-label fs-base"  %><br />
+                    <%= form.password_field :password_confirmation, autocomplete: "new-password", id: "user_password_confirmation", class: "form-control form-control-lg", style: "width: 400px;" %>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6 mb-4">
+                    <%= form.label :current_password, class: "form-label fs-base"  %> <i>(we need your current password to confirm your changes)</i><br />
+                    <%= form.password_field :current_password, autocomplete: "current-password", id: "user_current_password", class: "form-control form-control-lg", style: "width: 400px;" %>
+                  </div>
+                </div>
+
+                <div>
+                  <%= form.submit "Update" %>
+                </div>
+              <% end %>
+            </div>
     <h2 class="h5 text-primary pt-1 pt-lg-3 mt-4">Delete account</h2>
     <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
     <div class="form-check mb-4 mt-3 me-3">
