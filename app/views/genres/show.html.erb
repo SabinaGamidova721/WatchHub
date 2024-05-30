@@ -13,15 +13,15 @@
               0.07em 0 black,
               0 0.07em black,
               -0.07em 0 black,
-              0 -0.07em black;"><%= @genre.title %></h2>
+              0 -0.07em black;"><%= t("genres.#{@genre.title}") %></h2>
           <p class="description normal-description" style="font-weight: bold; text-shadow:
               0.07em 0 black,
               0 0.07em black,
               -0.07em 0 black,
-              0 -0.07em black;"><%= @genre.description %><br></p>
+              0 -0.07em black;"><%= t("descriptions.genres.#{@genre.title}") %><br></p>
           <ol class="breadcrumb justify-content-center">
-            <li class="breadcrumb-item"><%= link_to "Genres", genres_path %></li>
-            <li class="breadcrumb-item active"><%= @genre.title %></li>
+            <li class="breadcrumb-item"><%= link_to t("heading.Genres"), genres_path %></li>
+            <li class="breadcrumb-item active"><%= t("genres.#{@genre.title}") %></li>
           </ol>
         </nav>
       </div>
@@ -42,7 +42,7 @@
             <% end %>
 
             <div class="card-body">
-              <p class="card-text text-center h5"><%= film.title %></p>
+              <p class="card-text text-center h5"><%= t("films.#{film.title}") %></p>
             </div>
           </div>
         <% end %>

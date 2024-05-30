@@ -38,7 +38,7 @@
                         <div class="img-box">
                           <%= image_tag("films/#{film.title}.jpg", class: "img-fluid", loading: "lazy") %>
                           <div class="block-description">
-                            <h6 class="iq-title fw-500 mb-0"><%= film.title%></h6>
+                            <h6 class="iq-title fw-500 mb-0"><%= t("films.#{film.title}") %></h6>
                             <span class="fs-12"><%= format_duration(film.duration) %></span>
                           </div>
                         </div>
@@ -108,18 +108,18 @@
                             <ul class="p-0 mb-0 list-inline d-flex flex-wrap align-items-center movie-tag">
                               <% film.genres.each do |genre| %>
                                 <li class="position-relative text-capitalize font-size-14 letter-spacing-1">
-                                  <%= link_to genre.title, genre_path(genre), class: "text-decoration-none" %>
+                                  <%= link_to t("genres.#{genre.title}"), genre_path(genre), class: "text-decoration-none" %>
                                 </li>
                               <% end %>
                             </ul>
                           </div>
                           <h1 class="texture-text big-font letter-spacing-1 line-count-1 text-capitalize RightAnimate-two">
-                            <%= film.title %> </h1>
+                            <%= t("films.#{film.title}") %></h1>
                           <p class="line-count-3 RightAnimate-two" style="font-weight:bold;text-shadow:
                             0.07em 0 black,
                               0 0.07em black,
                               -0.07em 0 black,
-                              0 -0.07em black;"><%= film.description %>.</p>
+                              0 -0.07em black;"><%= t("descriptions.films.#{film.title}") %></p>
                           <div class="d-flex flex-wrap align-items-center gap-3 RightAnimate-three">
                             <div class="slider-ratting d-flex align-items-center">
 <!--                              <ul class="ratting-start p-0 m-0 list-inline text-warning d-flex align-items-center justify-content-left">-->
@@ -132,13 +132,12 @@
                               0.07em 0 black,
                                 0 0.07em black,
                                 -0.07em 0 black,
-                                0 -0.07em black;"><%= "Duration:#{format_duration(film.duration)}" %></span>
+                                0 -0.07em black;"><%= t("p.Duration") + "#{format_duration(film.duration)}" %></span>
                           </div>
                         </div>
                         <div class="RightAnimate-four">
                           <div class="iq-button">
-                            <%= link_to "Watch now", film_path(film), class: "btn text-uppercase position-relative button-text"%>
-<!--                            <i class="fa-solid fa-play"></i>-->
+                            <%= link_to t("buttons.Watch_now"), film_path(film), class: "btn text-uppercase position-relative button-text"%>
                           </div>
                         </div>
                       </div>
@@ -332,7 +331,7 @@
       <section class="overflow-hidden">
         <div class="d-flex align-items-center justify-content-between px-md-3 px-1 mb-4">
           <h2 class="main-title text-capitalize mb-0 mt-3" style="margin-left: auto;margin-right: auto">
-            top ten movies to watch</h2>
+            <%= t("heading.top_ten") %></h2>
         </div>
         <div class="position-relative swiper swiper-card iq-top-ten-block-slider swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="6" data-laptop="6" data-tab="3" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="false" data-navigation="true" data-pagination="true">
           <ul class="p-0 swiper-wrapper mb-5 list-inline" id="swiper-wrapper-89f6aa5889fa2af7" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
@@ -595,7 +594,7 @@
     <div class="container-fluid">
       <section class="overflow-hidden">
         <div class="d-flex align-items-center justify-content-between px-md-3 px-1 my-4">
-          <h3 class="main-title text-capitalize mb-0" style="margin-left: auto;margin-right: auto">Find yourself a new favorite cast</h3>
+          <h3 class="main-title text-capitalize mb-0" style="margin-left: auto;margin-right: auto"><%= t("heading.Find_cast") %></h3>
         </div>
         <div class="position-relative swiper swiper-card swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="10" data-laptop="10" data-tab="4" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="true" data-navigation="true" data-pagination="true">
           <ul class="p-0 swiper-wrapper m-0  list-inline personality-card" id="swiper-wrapper-28b198b47109ea816" aria-live="polite" style="transform: translate3d(-926px, 0px, 0px); transition-duration: 0ms;">
@@ -604,9 +603,9 @@
               <%= image_tag("cast/#{cast.first_name} #{cast.last_name}.jpg", class: 'img-fit object-fit mb-4 rounded', height: "200") %>
               <div class="text-center">
                 <h6 class="mb-0">
-                  <%= link_to "#{cast.first_name} #{cast.last_name}", cast_path(cast), class: "font-size-14 text-decoration-none cast-title text-capitalize" %>
+                  <%= link_to "#{t("casts.first_name.#{cast.first_name}")} #{t("casts.last_name.#{cast.last_name}")}", cast_path(cast), class: "font-size-14 text-decoration-none cast-title text-capitalize" %>
                 </h6>
-                <%= link_to cast.role.title, cast_path(cast), class: "font-size-14 text-decoration-none text-capitalize text-body" %>
+                <%= link_to t("roles.#{cast.role.title}"), cast_path(cast), class: "font-size-14 text-decoration-none text-capitalize text-body" %>
               </div>
               </li>
             <% end %>
@@ -638,14 +637,14 @@
     </div>
   </div>
 
-  <h3 class="mb-5" style="text-align: center">Choose films by your taste</h3>
+  <h3 class="mb-5" style="text-align: center"><%= t("heading.Choose_films") %></h3>
   <% @genres.each do |genre| %>
     <div class="genre-block mt-0">
       <div class="container-fluid">
         <section class="overflow-hidden">
           <div class="d-flex align-items-center justify-content-between px-md-3 px-1 mb-4">
-            <h4 class="main-title text-capitalize mb-0"><%= genre.title %></h4>
-            <%= link_to "View all", genre_path(genre), class: "text-primary iq-view-all text-decoration-none flex-none"%>
+            <h4 class="main-title text-capitalize mb-0"><%= t("genres.#{genre.title}") %></h4>
+            <%= link_to t("buttons.View_all"), genre_path(genre), class: "text-primary iq-view-all text-decoration-none flex-none"%>
           </div>
           <div class="position-relative swiper swiper-card iq-top-ten-block-slider swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="6" data-laptop="6" data-tab="3" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="false" data-navigation="true" data-pagination="true">
             <ul class="p-0 swiper-wrapper mb-5 list-inline" id="swiper-wrapper-89f6aa5889fa2af7" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">

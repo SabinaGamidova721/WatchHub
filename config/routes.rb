@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   #devise_for :users
   #root to: "index#home"
+  
+  # scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
   root to: "index#startpage"
   get '/home', to: 'index#home', as: :home
@@ -36,4 +38,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # end
 end
