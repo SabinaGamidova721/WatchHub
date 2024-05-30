@@ -128,11 +128,13 @@
 <!--                                </li>-->
 <!--                              </ul>-->
                             </div>
-                            <span class="font-size-24 fw-500" style="text-shadow:
+                            <span class="star">&#9733;</span>
+                            <span class="text-white ms-2 fw-500" style="font-size: 32px;margin-left: -10px"><%= film.average_rating %>/5</span>
+                            <span style="font-size: 28px;text-shadow:
                               0.07em 0 black,
                                 0 0.07em black,
                                 -0.07em 0 black,
-                                0 -0.07em black;"><%= "Duration:#{format_duration(film.duration)}" %></span>
+                                0 -0.07em black;"><%= "#{format_duration(film.duration)}" %></span>
                           </div>
                         </div>
                         <div class="RightAnimate-four">

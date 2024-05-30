@@ -96,8 +96,12 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-user border-0 p-0 m-0"
                   aria-labelledby="navbarDropdown">
                   <li class="user-info d-flex align-items-center gap-3 mb-3">
-                    <img src="https://templates.iqonic.design/streamit/html/frontend/assets/images/user/user1.webp" class="img-fluid" alt="" loading="lazy">
-                    <span class="font-size-14 fw-500 text-capitalize text-white">Jenny</span>
+                    <% if current_user.user_profile.avatar.attached? %>
+                      <%= image_tag(current_user.user_profile.avatar, class: "img-fluid") %>
+                    <% else %>
+                      <%= image_tag("unknown.jpg", class: "img-fluid") %>
+                    <% end %>
+                    <span class="font-size-14 fw-500 text-capitalize text-white"><%= current_user.user_profile.nickname %></span>
                   </li>
                   <li>
                     <%= link_to edit_user_profile_path(current_user), class: "iq-sub-card d-flex align-items-center gap-3", style: "text-decoration: none;" do %>
