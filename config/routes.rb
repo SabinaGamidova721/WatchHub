@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: "index#startpage"
   get '/home', to: 'index#home', as: :home
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords' }
   devise_scope :user do
     get '/users/sign_in', to: 'users/sessions#new'
     post '/users/sign_out', to: 'users/sessions#destroy' 
