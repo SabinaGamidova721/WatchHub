@@ -27,7 +27,7 @@
       }
       .form-label, .form-select, .form-control {
           color: #e0e0e0;
-          font-size: 16px;
+          font-size: 18px;
       }
       .form-select {
           background-color: #1e1e1e;
@@ -68,7 +68,7 @@
         <div class="form-row">
           <div class="form-group">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title" value="<%= params[:title] %>" placeholder="Enter title" style="width: 560px">
+            <input type="text" class="form-control" id="title" name="title" value="<%= params[:title] %>" placeholder="Enter title" style="width: 100%">
           </div>
           <div class="form-group">
             <label for="genre_id" class="form-label">Genre</label>
@@ -81,11 +81,11 @@
           </div>
           <div class="form-group">
             <label for="min_year" class="form-label">Min Year of Release</label>
-            <input type="number" class="form-control" id="min_year" name="min_year" value="<%= params[:min_year] %>" placeholder="Min year" min="1888" style="width: 445px">
+            <input type="number" class="form-control" id="min_year" name="min_year" value="<%= params[:min_year] %>" placeholder="Min year" min="1888" style="width: 100%">
           </div>
           <div class="form-group">
             <label for="max_duration" class="form-label">Max Duration (minutes)</label>
-            <input type="number" class="form-control" id="max_duration" name="max_duration" value="<%= params[:max_duration] %>" placeholder="Max duration" min="1" style="width: 423px">
+            <input type="number" class="form-control" id="max_duration" name="max_duration" value="<%= params[:max_duration] %>" placeholder="Max duration" min="1" style="width: 100%">
           </div>
           <div class="form-group">
             <label for="maturity_rating_id" class="form-label">Maturity Rating</label>
