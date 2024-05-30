@@ -1,7 +1,6 @@
 <main class="main-content">
   <!--Nav Start-->
   <!--bread-crumb-->
-  <!--bread-crumb-->
 
   <div class="section-padding">
     <div class="container-fluid">
@@ -10,22 +9,23 @@
           <div class="cast-box position-relative">
             <%= image_tag("cast/#{@cast.first_name} #{@cast.last_name}.jpg", class: "img-fluid object-cover w-100", loading: "lazy") %>
           </div>
-          <h5 class="mt-3 mb-4 text-white fw-500">Personal Details</h5>
-          <h6 class="font-size-18 text-white fw-500">Born :</h6>
+          <h5 class="mt-3 mb-4 text-white fw-500"><%= t("heading.personal_details") %></h5>
+          <h6 class="font-size-18 text-white fw-500"><%= t("heading.Born") %>:</h6>
           <div class="seperator d-flex align-items-center flex-wrap mb-3">
-            <span><%= @cast.date_of_birth.strftime("%B %e, %Y") %></span>
+            <span><%= I18n.l(@cast.date_of_birth, format: :default) %></span>
           </div>
         </div>
         <div class="col-lg-9 col-md-7 mt-5 mt-md-0">
-          <h4 class="fw-500"><%= @cast.first_name%> <%= @cast.last_name %></h4>
+          <h4 class="fw-500"><%= t("casts.first_name.#{@cast.first_name}") %> <%= t("casts.last_name.#{@cast.last_name}") %></h4>
           <div class="seperator d-flex align-items-center flex-wrap mb-3">
-            <span class="fw-semibold"><%= @cast.role.title %></span>
+            <span class="fw-semibold"><%= t("roles.#{@cast.role.title}") %></span>
           </div>
-          <p><%= @cast.description %></p>
+
+          <p><%= t("casts.description.#{@cast.last_name}") %></p>
           <div class="awards-box pb-0 mb-4 border-bottom">
           </div>
           <div class="pb-md-5 mt-3">
-            <h3 class="main-title text-capitalize mb-4" style="padding-left: 15px">Most View Movies</h3>
+            <h3 class="main-title text-capitalize mb-4" style="padding-left: 15px"><%= t("heading.Most_View_Movies") %></h3>
             <div class="position-relative swiper swiper-card iq-top-ten-block-slider swiper-initialized swiper-horizontal swiper-pointer-events" data-slide="6" data-laptop="6" data-tab="3" data-mobile="2" data-mobile-sm="2" data-autoplay="false" data-loop="false" data-navigation="true" data-pagination="true">
               <ul class="p-0 swiper-wrapper mb-5 list-inline" id="swiper-wrapper-89f6aa5889fa2af7" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
                 <% @top_films.each do |film|%>
@@ -110,7 +110,7 @@
               <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
             </div>
             <div class="content-details trending-info">
-              <h5 class="main-title text-capitalize mb-4" style="text-align: center">All Movies</h5>
+              <h5 class="main-title text-capitalize mb-4" style="text-align: center"><%= t("heading.All_Movies") %></h5>
               <div class="tab-content">
                 <div id="all" class="tab-pane animated fadeInUp active show" role="tabpanel">
                   <div class="description-content">
@@ -123,17 +123,17 @@
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
                                 <span><%= index+1 %></span>
-                                <span class="text-capitalize"><%= film.title%></span>
+                                <span class="text-capitalize"><%= t("films.#{film.title}") %></span>
                               </div>
                             </td>
                             <td class="w-20" style="width: 100%;text-align: center">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500" style="width: 100%;text-align: center">
-                                <span class="text-capitalize" style="width: 100%;text-align: center"><span class="fw-normal text-body"><%= film.slogan%></span></span>
+                                <span class="text-capitalize" style="width: 100%;text-align: center"><span class="fw-normal text-body"><%= t("slogan.#{film.title}") %></span></span>
                               </div>
                             </td>
                             <td class="w-20">
                               <div class="font-size-18 d-flex gap-4 text-white fw-500">
-                                <span class="text-capitalize" style="width: 100%;text-align: center"><%= film.genres.map(&:title).join(', ')%></span>
+                                <span class="text-capitalize" style="width: 100%;text-align: center"><%= film.genres.map { |genre| t("genres.#{genre.title}") }.join(', ') %></span>
                               </div>
                             </td>
                             <td class="w-20">
@@ -227,4 +227,3 @@
 <!-- Streamit Script -->
 <script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/streamit.js" defer="" type="text/javascript"></script>
 <script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/swiper.js" defer="" type="text/javascript"></script>
-

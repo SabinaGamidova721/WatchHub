@@ -21,13 +21,13 @@
                     </div>
 
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <div class="mb-3" style="min-width: 600px;margin-top: 20px">
-                            <label class="text-white fw-500 mb-2">Email</label>
+                        <div class="mb-3" style="min-width: 600px; margin-top: 20px">
+                            <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.email") %></label>
                             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;"  %>
                         </div>
                         
                         <div class="mb-3" style="min-width: 600px;">
-                            <label class="text-white fw-500 mb-2">Password</label>
+                            <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.password") %></label>
                             <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;" %>
                         </div>
 
@@ -41,15 +41,15 @@
                         <div class="full-button">
                           <div class="iq-button">
                             <div class="actions">
-                              <%= f.submit "Log in", class: "btn text-uppercase position-relative", style: "text-decoration: none; height: 50px;" %>
+                              <%= f.submit t("buttons.login"), class: "btn text-uppercase position-relative", style: "text-decoration: none; height: 50px;" %>
                             </div>
                           </div>
                         </div>
 
-                    <p class="my-4 text-center fw-500 text-white">New to WatchHub? <%= link_to "Register", new_user_profile_path, class: "text-primary ms-1", style: "text-decoration: none;" %></p>
+                    <p class="my-4 text-center fw-500 text-white"><%= t("p.New_WatchHub") %><%= link_to t("buttons.register"), new_user_profile_path, class: "text-primary ms-1", style: "text-decoration: none;" %></p>
                     <p class="my-4 text-center fw-500 text-white">
                       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-primary ms-1", style: "text-decoration: none;" %><br />
+                        <%= link_to t("buttons.forgot_your_password"), new_password_path(resource_name), class: "text-primary ms-1", style: "text-decoration: none;" %><br />
                       <% end %>  
                     </p>
                     <% end %>

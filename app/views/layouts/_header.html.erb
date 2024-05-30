@@ -15,13 +15,13 @@
           <div class="container-fluid p-lg-0">
             <ul class="navbar-nav iq-nav-menu  list-unstyled" id="header-menu">
               <li class="nav-item">
-                <%= link_to "Home", home_path, class: "nav-link item-name #{active_class(home_path)}", style: "font-size: 28px"%>
+                <%= link_to t("nav.home"), home_path, class: "nav-link item-name #{active_class(home_path)}", style: "font-size: 28px"%>
               </li>
               <li class="nav-item">
-                <%= link_to "Genres", genres_path, class: "nav-link item-name #{active_class(genres_path)}", style: "font-size: 28px"%>
+                <%= link_to t("heading.Genres"), genres_path, class: "nav-link item-name #{active_class(genres_path)}", style: "font-size: 28px"%>
               </li>
               <li class="nav-item">
-                <%= link_to "Search films", films_path, class: "nav-link item-name #{active_class(films_path)}", style: "font-size: 28px"%>
+                <%= link_to t("nav.search_films"), films_path, class: "nav-link item-name #{active_class(films_path)}", style: "font-size: 28px"%>
               </li>
             </ul>
           </div>
@@ -52,7 +52,7 @@
                     <li class="p-0">
                       <form method="get" action="<%= films_path %>">
                       <div class="form-group input-group mb-0">
-                        <input type="text" name="title" class="form-control border-0" placeholder="Search...">
+                        <input type="text" name="title" class="form-control border-0" placeholder="<%= t('nav.search') %>">
                         <button type="submit" class="search-submit">
                           <svg class="icon-15" width="15" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.84455 20.6621C4.15273 20.6621 1 20.0876 1 17.7868C1 15.486 4.13273 13.3621 7.84455 13.3621C11.5364 13.3621 14.6891 15.4654 14.6891 17.7662C14.6891 20.066 11.5564 20.6621 7.84455 20.6621Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.83725 10.1738C10.26 10.1738 12.2236 8.21015 12.2236 5.78742C12.2236 3.36469 10.26 1.40015 7.83725 1.40015C5.41452 1.40015 3.44998 3.36469 3.44998 5.78742C3.4418 8.20196 5.3918 10.1656 7.80634 10.1738C7.81725 10.1738 7.82725 10.1738 7.83725 10.1738Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                       </svg>
-                      <h6 class="mb-0 font-size-14 fw-normal">My Account</h6>
+                      <h6 class="mb-0 font-size-14 fw-normal"><%= t("heading.My_account") %></h6>
                     <% end %>
                   </li>
                   <li>
@@ -134,11 +134,32 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M1.82209 15.9999C1.46654 15.9999 1.16283 15.874 0.910981 15.6221C0.659129 15.3703 0.533203 15.0666 0.533203 14.711V1.73322C0.533203 1.37767 0.659129 1.07397 0.910981 0.822114C1.16283 0.570262 1.46654 0.444336 1.82209 0.444336H7.95543V1.44434H1.82209C1.74802 1.44434 1.68135 1.47397 1.62209 1.53322C1.56283 1.59248 1.5332 1.65915 1.5332 1.73322V14.711C1.5332 14.7851 1.56283 14.8517 1.62209 14.911C1.68135 14.9703 1.74802 14.9999 1.82209 14.9999H7.95543V15.9999H1.82209ZM12.0888 11.5999L11.3554 10.8888L13.5332 8.73322H5.68876V7.711H13.511L11.3332 5.55545L12.0665 4.82211L15.4665 8.24434L12.0888 11.5999Z" fill="currentColor"></path>
                       </svg>
-                      <h6 class="mb-0 font-size-14 fw-normal">Sign out</h6>
+                      <h6 class="mb-0 font-size-14 fw-normal"><%= t("buttons.sign_out") %></h6>
                     <% end %>
                   </li>
                 </ul>
               </li>
+
+              <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 me-2">
+                <li class="dropdown">
+                  <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white', data: {"bs-toggle": 'dropdown'} do %>
+                    <%= t I18n.locale %>
+                  <% end %>
+
+                  <ul class="dropdown-menu">
+                    <% I18n.available_locales.each do |locale| %>
+                      <li>
+                        <% if I18n.locale == locale %>
+                          <%= tag.span t(locale), class: 'dropdown-item' %>
+                        <% else %>
+                          <%= link_to t(locale), url_for(locale: locale), class: 'dropdown-item' %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </li>
+              </ul>
+              
             </ul>
           </div>
         </div>

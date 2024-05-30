@@ -16,11 +16,11 @@
                           <ol class="breadcrumb justify-content-center">                              
  
                             <li>
-                              <%= link_to 'Login', new_user_session_path, class: 'ms-3 btn btn-danger btn-sm', style: "color: white; font-weight: bold; background-color: red; text-decoration: none; border: none;" %>
+                              <%= link_to t("buttons.login"), new_user_session_path, class: 'ms-3 btn btn-danger btn-sm', style: "color: white; font-weight: bold; background-color: red; text-decoration: none; border: none;" %>
                             </li>
                             
                             <li>
-                              <%= link_to 'Sign up', new_user_profile_path, class: 'ms-1 btn btn-danger btn-sm', style: "color: white; font-weight: bold; background-color: red; text-decoration: none; border: none;" %>
+                              <%= link_to t("buttons.sign_up"), new_user_profile_path, class: 'ms-1 btn btn-danger btn-sm', style: "color: white; font-weight: bold; background-color: red; text-decoration: none; border: none;" %>
                             </li>
 
                           </ol>
@@ -40,10 +40,10 @@
                         <i aria-hidden="true" class="bi bi-dash active"></i>
                         <i aria-hidden="true" class="fas fa-plus inactive"></i>
                     </div>
-                    <h4 class="mb-0 accordian-title">What is watch hub?</h4>
+                    <h4 class="mb-0 accordian-title"><%= t("p.What_watch") %></h4>
                 </div>                   
                 <div class="iq-accordian-details" style="display: block;">                         
-                    <p class="mb-0"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. </p>
+                    <p class="mb-0"><%= t("p.What_watch_desc") %></p>
                 </div>
             </div>
             <div class="iq-accordian-block 2">
@@ -52,10 +52,10 @@
                         <i aria-hidden="true" class="bi bi-dash active"></i>
                         <i aria-hidden="true" class="fa fa-plus inactive"></i>
                     </div>
-                    <h4 class="mb-0 accordian-title">Will my account work outside my country?</h4>                 
+                    <h4 class="mb-0 accordian-title"><%= t("p.account_work_country") %></h4>                 
                 </div>
                 <div class="iq-accordian-details" style="display: none;">                         
-                    <p class="mb-0"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. </p>
+                    <p class="mb-0"><%= t("p.What_watch_desc") %></p>
                 </div>
             </div>
             <div class="iq-accordian-block 3">
@@ -64,10 +64,10 @@
                         <i aria-hidden="true" class="bi bi-dash active"></i>
                         <i aria-hidden="true" class="fa fa-plus inactive"></i>
                     </div>
-                    <h4 class="mb-0 accordian-title text-capitalize">I am facing video playback issues. What do I do?</h4>                 
+                    <h4 class="mb-0 accordian-title text-capitalize"><%= t("p.facing_video_playback") %></h4>                 
                 </div>
                 <div class="iq-accordian-details" style="display: none;">                         
-                    <p class="mb-0"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. </p>
+                    <p class="mb-0"><%= t("p.What_watch_desc") %></p>
                 </div>
             </div>
             <div class="iq-accordian-block 4">
@@ -76,10 +76,10 @@
                         <i aria-hidden="true" class="bi bi-dash active"></i>
                         <i aria-hidden="true" class="fa fa-plus inactive"></i>
                     </div>
-                    <h4 class="mb-0 accordian-title text-capitalize">How can I manage notifications?</h4>                 
+                    <h4 class="mb-0 accordian-title text-capitalize"><%= t("p.manage_notifications") %></h4>                 
                 </div>
                 <div class="iq-accordian-details" style="display: none;">                         
-                    <p class="mb-0"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. </p>
+                    <p class="mb-0"><%= t("p.What_watch_desc") %></p>
                 </div>
             </div>
             <div class="iq-accordian-block 5">
@@ -88,10 +88,10 @@
                         <i aria-hidden="true" class="bi bi-dash active"></i>
                         <i aria-hidden="true" class="fa fa-plus inactive"></i>
                     </div>
-                    <h4 class="mb-0 accordian-title text-capitalize">What benefits do I get with the packs?</h4>                 
+                    <h4 class="mb-0 accordian-title text-capitalize"><%= t("p.benefits") %></h4>                 
                 </div>
                 <div class="iq-accordian-details" style="display: none;">                         
-                    <p class="mb-0"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. </p>
+                    <p class="mb-0"><%= t("p.What_watch_desc") %></p>
                 </div>
             </div>
         </div>
