@@ -105,9 +105,9 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="filter_by" id="filter_by_rating" value="rating" <%= 'checked' if params[:filter_by] == 'rating' %>>
-              <label class="form-check-label" for="filter_by_rating">
-                <%= t("p.Average_Rating") %>
+              <input class="form-check-input" type="radio" name="filter_by" id="filter_by_year" value="year" <%= 'checked' if params[:filter_by].nil?  params[:filter_by].empty?  params[:filter_by] == 'year' %>>
+              <label class="form-check-label" for="filter_by_year">
+                <%= t("p.Year_Release") %>
               </label>
             </div>
           </div>
