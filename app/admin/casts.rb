@@ -17,4 +17,5 @@ ActiveAdmin.register Cast do
   # end
 
   remove_filter :avatar_attachment, :avatar_blob
+  remove_filter :cast_films
 end
