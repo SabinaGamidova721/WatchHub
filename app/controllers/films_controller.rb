@@ -22,7 +22,9 @@ class FilmsController < ApplicationController
 
     @genres = @film.genres
     @genre_titles = @genres.map(&:title)
-    
+
+    @countries = @film.countries
+
     @actors = cast_by_role(@film.id, 'Actor')
     @directors = cast_by_role(@film.id, 'Film director')
     
