@@ -32,18 +32,18 @@ class ApplicationController < ActionController::Base
     @show_footer = excluded_paths.none? {|path| request.path.include?(path) }
   end
 
-  def switch_locale(&action)
+  def switch_locale(&)
     locale = locale_from_url || I18n.default_locale
-    I18n.with_locale locale, &action
+    I18n.with_locale(locale, &)
   end
 
   def locale_from_url
     locale = params[:locale]
 
-    return locale if I18n.available_locales.map(&:to_s).include?(locale)
+    locale if I18n.available_locales.map(&:to_s).include?(locale)
   end
 
   def default_url_options
-    { locale: I18n.locale }
+    {locale: I18n.locale}
   end
 end

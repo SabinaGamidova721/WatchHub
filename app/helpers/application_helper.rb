@@ -4,11 +4,11 @@ module ApplicationHelper
   def format_duration(minutes)
     hours = minutes / 60
     minutes %= 60
-    "#{hours} #{t("time.hours")} #{minutes} #{t("time.minutes")}"
+    "#{hours} #{t('time.hours')} #{minutes} #{t('time.minutes')}"
   end
 
   def active_class(link_path)
-    current_page?(link_path) ? 'active' : ''
+    current_page?(link_path) ? "active" : ""
   end
 
   def asset_exists?(path)
