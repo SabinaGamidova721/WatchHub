@@ -3,14 +3,17 @@
 class UserHistoriesController < ApplicationController
   before_action :set_user_history, only: %i[show edit update destroy]
   before_action :authenticate_user!
-
+  
   # GET /user_histories or /user_histories.json
   def index
-    @user_histories = UserHistory.all
+    # @user_histories = UserHistory.all
+    @user_histories = UserHistory.where(user_profile_id: session[:user_id])
+
   end
 
   # GET /user_histories/1 or /user_histories/1.json
-  def show; end
+  def show
+  end
 
   # GET /user_histories/new
   def new
@@ -18,7 +21,8 @@ class UserHistoriesController < ApplicationController
   end
 
   # GET /user_histories/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /user_histories or /user_histories.json
   def create
@@ -59,14 +63,13 @@ class UserHistoriesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user_history
+      @user_history = UserHistory.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_user_history
-    @user_history = UserHistory.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def user_history_params
-    params.require(:user_history).permit(:user_profile_id, :film_id)
-  end
+    # Only allow a list of trusted parameters through.
+    def user_history_params
+      params.require(:user_history).permit(:user_profile_id, :film_id)
+    end
 end

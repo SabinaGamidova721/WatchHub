@@ -83,3 +83,7 @@ gem "font-awesome-rails", "4.7.0.8"
 gem "inline_svg", "1.9.0"
 
 gem "rails-i18n", "7.0.9"
+
+gem 'font-awesome-sass', '~> 5.15.1'
+
+gem 'starrr'
