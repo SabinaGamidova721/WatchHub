@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :countries do
   desc "Seed countries"
   task countries: :environment do

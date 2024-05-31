@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   #devise_for :users
   #root to: "index#home"
+  
+  # scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
   root to: "index#startpage"
   get '/home', to: 'index#home', as: :home
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions', passwords: 'users/passwords' }
   devise_scope :user do
     get '/users/sign_in', to: 'users/sessions#new'
     post '/users/sign_out', to: 'users/sessions#destroy' 
@@ -46,4 +48,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 class RatingsController < ApplicationController
   before_action :set_rating, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /ratings or /ratings.json
   def index
@@ -85,3 +87,4 @@ class RatingsController < ApplicationController
       params.require(:rating).permit(:user_profile_id, :film_id, :score)
     end
 end
+

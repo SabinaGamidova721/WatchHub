@@ -11,6 +11,9 @@
 /.env*
 !/.env*.erb
 
+# Ignore rake backup file.
+*~
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

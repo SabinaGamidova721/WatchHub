@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class CastFilmsController < ApplicationController
-  before_action :set_cast_film, only: %i[ show edit update destroy ]
+  before_action :set_cast_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /cast_films or /cast_films.json
   def index
@@ -7,8 +10,7 @@ class CastFilmsController < ApplicationController
   end
 
   # GET /cast_films/1 or /cast_films/1.json
-  def show
-  end
+  def show; end
 
   # GET /cast_films/new
   def new
@@ -16,8 +18,7 @@ class CastFilmsController < ApplicationController
   end
 
   # GET /cast_films/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cast_films or /cast_films.json
   def create
@@ -58,13 +59,14 @@ class CastFilmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cast_film
-      @cast_film = CastFilm.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cast_film_params
-      params.require(:cast_film).permit(:cast_id, :film_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cast_film
+    @cast_film = CastFilm.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cast_film_params
+    params.require(:cast_film).permit(:cast_id, :film_id)
+  end
 end

@@ -1,21 +1,3 @@
-<html lang="en" data-bs-theme="dark" dir="ltr"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
-  <link rel="shortcut icon" href="https://templates.iqonic.design/streamit/html/frontend/assets/images/favicon.ico">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/core/libs.min.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/iconly/css/style.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/animate.min.css">
-  
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/streamit.min.css?v=5.1.0">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/custom.min.css?v=5.1.0">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/rtl.min.css?v=5.1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&amp;display=swap" rel="stylesheet"
-</head>
-
 <body class="  ">
   <span class="screen-darken"></span>
   <div class="loader simple-loader animate__animated animate__fadeOut d-none">
@@ -34,17 +16,17 @@
 
             <%= form_with(model: user_profile) do |form| %>
 
-               <h4 class="text-center mb-5">Create Your Account</h4>
+               <h4 class="text-center mb-5"><%= t("heading.create_account") %></h4>
 
                <div class="row row-cols-1 row-cols-lg-2 g-2 g-lg-5">
 
                   <div class="col">
-                    <label class="text-white fw-500 mb-2">Nickname</label>
+                    <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user_profile.nickname") %></label>
                     <%= form.text_field :nickname, class: "form-control rounded-0", style: "border: 2px solid black; min-width: 370px; height: 50px;", required: true %>
                   </div>
 
                   <div class="col">
-                    <label class="text-white fw-500 mb-2">Date of birth</label>
+                    <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user_profile.date_of_birth") %></label>
                     <%= form.date_field :date_of_birth, class: "form-control rounded-0", style: "border: 2px solid black; min-width: 370px; height: 50px;", required: true %>
                   </div>
 
@@ -53,41 +35,41 @@
                   <%= form.fields_for :user do |user_fields| %>
 
                       <div class="col">
-                        <label class="text-white fw-500 mb-2">Email</label>
+                        <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.email") %></label>
                         <%= user_fields.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-0", style: "border: 2px solid black; min-width: 370px; height: 50px;", required: true %>
                       </div>
 
                       <div class="col">
-                        <label class="text-white fw-500 mb-2">Password</label>
+                        <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.password") %></label>
                         <% if @minimum_password_length %>
-                          <em>(<%= @minimum_password_length %> characters minimum)</em>
+                          <em>(<%= @minimum_password_length %> <%= t("activerecord.attributes.minimum_password_length") %> )</em>
                         <% end %><br />
                         <%= user_fields.password_field :password, autocomplete: "new-password", class: "form-control rounded-0", style: "border: 2px solid black; min-width: 370px; height: 50px;", required: true %>
                       </div>
                   
                       <div class="col">
-                        <label class="text-white fw-500 mb-2">Password confirmation</label>
+                        <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.password_confirmation") %></label>
                         <%= user_fields.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-0", style: "border: 2px solid black; min-width: 800px; height: 50px;", required: true %>
                       </div>
                     
                   <% end %>
                 
               </div>
-              <label class="list-group-item d-flex align-items-center mt-5 mb-3 text-white"><input class="form-check-input m-0 me-2" type="checkbox">I've read and accept the <a href="terms-of-use.html" class="ms-1" style="text-decoration: none; color: red;">terms &amp; conditions*</a></label>
-              
+              <label class="list-group-item d-flex align-items-center mt-5 mb-3 text-white"><input class="form-check-input m-0 me-2" type="checkbox"><%= t("p.read_accept") %><a href="#" class="ms-1" style="text-decoration: none; color: red;"><%= t("p.terms") %></a></label>
+            
             <div class="row text-center">
               <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                   <div class="full-button">
                     <div class="iq-button">
                       <div>
-                        <%= form.submit "Sign Up", class: "btn text-uppercase position-relative mt-2", style: "text-decoration: none; height: 50px;" %>
+                        <%= form.submit t("buttons.sign_up"), class: "btn text-uppercase position-relative mt-2", style: "text-decoration: none; height: 50px;" %>
                       </div>
                     </div>
                   </div>
                 </div>
               <div class="col-lg-3"></div>
-              <p class="mt-2 mb-0 fw-normal mt-3">Already have an account?<%= link_to 'Login', new_user_session_path, class: 'ms-1', style: "text-decoration: none; color: red; font-weight: bold" %></p>
+              <p class="mt-2 mb-0 fw-normal mt-3"><%= t("p.have_account") %><%= link_to t("buttons.login"), new_user_session_path, class: 'ms-1', style: "text-decoration: none; color: red; font-weight: bold" %></p>
             </div>
 
             <% end %>

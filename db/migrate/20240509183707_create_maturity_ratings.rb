@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMaturityRatings < ActiveRecord::Migration[7.1]
   def change
     create_table :maturity_ratings do |t|

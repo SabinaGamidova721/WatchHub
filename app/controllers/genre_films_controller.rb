@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class GenreFilmsController < ApplicationController
-  before_action :set_genre_film, only: %i[ show edit update destroy ]
+  before_action :set_genre_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /genre_films or /genre_films.json
   def index
@@ -7,8 +10,7 @@ class GenreFilmsController < ApplicationController
   end
 
   # GET /genre_films/1 or /genre_films/1.json
-  def show
-  end
+  def show; end
 
   # GET /genre_films/new
   def new
@@ -16,8 +18,7 @@ class GenreFilmsController < ApplicationController
   end
 
   # GET /genre_films/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /genre_films or /genre_films.json
   def create
@@ -58,13 +59,14 @@ class GenreFilmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_genre_film
-      @genre_film = GenreFilm.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def genre_film_params
-      params.require(:genre_film).permit(:genre_id, :film_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_genre_film
+    @genre_film = GenreFilm.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def genre_film_params
+    params.require(:genre_film).permit(:genre_id, :film_id)
+  end
 end

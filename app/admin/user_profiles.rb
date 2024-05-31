@@ -1,5 +1,6 @@
-ActiveAdmin.register UserProfile do
+# frozen_string_literal: true
 
+ActiveAdmin.register UserProfile do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -16,5 +17,5 @@ ActiveAdmin.register UserProfile do
   # end
   #
 
-    remove_filter :avatar_attachment, :avatar_blob
+  remove_filter :avatar_attachment, :avatar_blob
 end

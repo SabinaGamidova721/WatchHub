@@ -1,6 +1,9 @@
-class UserWatchLatersController < ApplicationController
-  before_action :set_user_watch_later, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
+class UserWatchLatersController < ApplicationController
+  before_action :set_user_watch_later, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  
   # GET /user_watch_laters or /user_watch_laters.json
   def index
     @user_watch_laters = UserWatchLater.all
@@ -71,3 +74,4 @@ class UserWatchLatersController < ApplicationController
       params.require(:user_watch_later).permit(:user_profile_id, :film_id)
     end
 end
+

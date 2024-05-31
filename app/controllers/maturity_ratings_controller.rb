@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class MaturityRatingsController < ApplicationController
-  before_action :set_maturity_rating, only: %i[ show edit update destroy ]
+  before_action :set_maturity_rating, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /maturity_ratings or /maturity_ratings.json
   def index
@@ -7,8 +10,7 @@ class MaturityRatingsController < ApplicationController
   end
 
   # GET /maturity_ratings/1 or /maturity_ratings/1.json
-  def show
-  end
+  def show; end
 
   # GET /maturity_ratings/new
   def new
@@ -16,8 +18,7 @@ class MaturityRatingsController < ApplicationController
   end
 
   # GET /maturity_ratings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /maturity_ratings or /maturity_ratings.json
   def create
@@ -25,7 +26,9 @@ class MaturityRatingsController < ApplicationController
 
     respond_to do |format|
       if @maturity_rating.save
-        format.html { redirect_to maturity_rating_url(@maturity_rating), notice: "Maturity rating was successfully created." }
+        format.html {
+          redirect_to maturity_rating_url(@maturity_rating), notice: "Maturity rating was successfully created."
+        }
         format.json { render :show, status: :created, location: @maturity_rating }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,9 @@ class MaturityRatingsController < ApplicationController
   def update
     respond_to do |format|
       if @maturity_rating.update(maturity_rating_params)
-        format.html { redirect_to maturity_rating_url(@maturity_rating), notice: "Maturity rating was successfully updated." }
+        format.html {
+          redirect_to maturity_rating_url(@maturity_rating), notice: "Maturity rating was successfully updated."
+        }
         format.json { render :show, status: :ok, location: @maturity_rating }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,13 +63,14 @@ class MaturityRatingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_maturity_rating
-      @maturity_rating = MaturityRating.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def maturity_rating_params
-      params.require(:maturity_rating).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_maturity_rating
+    @maturity_rating = MaturityRating.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def maturity_rating_params
+    params.require(:maturity_rating).permit(:title, :description)
+  end
 end

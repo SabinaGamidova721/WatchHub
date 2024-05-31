@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 class FilmsController < ApplicationController
   before_action :set_film, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /films or /films.json
   def index
@@ -100,3 +102,4 @@ class FilmsController < ApplicationController
       params.permit(:title, :genre_id, :min_year, :max_duration, :maturity_rating_id, :filter_by)
     end
 end
+

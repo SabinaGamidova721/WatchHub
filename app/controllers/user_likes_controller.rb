@@ -1,6 +1,9 @@
-class UserLikesController < ApplicationController
-  before_action :set_user_like, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
+class UserLikesController < ApplicationController
+  before_action :set_user_like, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  
   # GET /user_likes or /user_likes.json
   def index
     # @user_likes = UserLike.all
@@ -71,3 +74,4 @@ class UserLikesController < ApplicationController
       params.require(:user_like).permit(:user_profile_id, :film_id)
     end
 end
+

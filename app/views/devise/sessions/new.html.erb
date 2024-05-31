@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" dir="ltr"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
-  <link rel="shortcut icon" href="https://templates.iqonic.design/streamit/html/frontend/assets/images/favicon.ico">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/core/libs.min.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/iconly/css/style.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/animate.min.css">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/streamit.min.css?v=5.1.0">
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/custom.min.css?v=5.1.0"> 
-  <link rel="stylesheet" href="https://templates.iqonic.design/streamit/html/frontend/assets/css/rtl.min.css?v=5.1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&amp;display=swap" rel="stylesheet">
-
-</head>
-
 <body class="  ">
   <span class="screen-darken"></span>
   <div class="loader simple-loader animate__animated animate__fadeOut d-none">
@@ -26,44 +7,28 @@
   </div>
   <main class="main-content">
 
-
 <div class="vh-100" style="background: url('https://templates.iqonic.design/streamit/html/frontend/assets/images/pages/01.webp'); background-size: cover; background-repeat: no-repeat; position: relative;min-height:500px">
     <div class="container">
         <div class="row justify-content-center align-items-center height-self-center vh-100">
             <div class="col-lg-5 col-md-12 align-self-center">
                 <div class="user-login-card bg-body">
                     <div class="text-center">
-                        <div class="logo-default">
-                            <p class="navbar-brand text-primary" style="font-weight: bold; font-size: 35px;">WATCHHUB</p>
-                        </div>
-                        <div class="logo-hotstar">
-                            <a class="navbar-brand text-primary" href="./index.html"> 
-                                <img class="img-fluid logo" src="https://templates.iqonic.design/streamit/html/frontend/assets/images/logo-hotstar.webp" loading="lazy" alt="streamit">
-                            </a>
-                        </div> 
-                        <div class="logo-prime">
-                            <a class="navbar-brand text-primary" href="./index.html"> 
-                                <img class="img-fluid logo" src="https://templates.iqonic.design/streamit/html/frontend/assets/images/logo-prime.webp" loading="lazy" alt="streamit">
-                            </a>
-                        </div> 
-                        <div class="logo-hulu">
-                            <a class="navbar-brand text-primary" href="./index.html"> 
-                                <img class="img-fluid logo" src="https://templates.iqonic.design/streamit/html/frontend/assets/images/logo-hulu.webp" loading="lazy" alt="streamit">
-                            </a>
-                        </div>
+                      <div class="logo-default">
+                        <a class="navbar-brand text-primary" href="/" style="font-size: 32px;">
+                          WatchHub
+                        </a>
+                      </div>
                     </div>
-                    <!-- <form action="post"> -->
-
 
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <div class="mb-3" style="min-width: 600px;">
-                            <label class="text-white fw-500 mb-2">Email</label>
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px; width: 450px;"  %>
+                        <div class="mb-3" style="min-width: 600px; margin-top: 20px">
+                            <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.email") %></label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;"  %>
                         </div>
                         
                         <div class="mb-3" style="min-width: 600px;">
-                            <label class="text-white fw-500 mb-2">Password</label>
-                            <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px; width: 450px;" %>
+                            <label class="text-white fw-500 mb-2"><%= t("activerecord.attributes.user.password") %></label>
+                            <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;" %>
                         </div>
 
                         <% if devise_mapping.rememberable? %>
@@ -76,15 +41,15 @@
                         <div class="full-button">
                           <div class="iq-button">
                             <div class="actions">
-                              <%= f.submit "Log in", class: "btn text-uppercase position-relative", style: "text-decoration: none; height: 50px;" %>
+                              <%= f.submit t("buttons.login"), class: "btn text-uppercase position-relative", style: "text-decoration: none; height: 50px;" %>
                             </div>
                           </div>
                         </div>
 
-                    <p class="my-4 text-center fw-500 text-white">New to WatchHub? <%= link_to "Register", new_user_profile_path, class: "text-primary ms-1", style: "text-decoration: none;" %></p>
+                    <p class="my-4 text-center fw-500 text-white"><%= t("p.New_WatchHub") %><%= link_to t("buttons.register"), new_user_profile_path, class: "text-primary ms-1", style: "text-decoration: none;" %></p>
                     <p class="my-4 text-center fw-500 text-white">
                       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-primary ms-1", style: "text-decoration: none;" %><br />
+                        <%= link_to t("buttons.forgot_your_password"), new_password_path(resource_name), class: "text-primary ms-1", style: "text-decoration: none;" %><br />
                       <% end %>  
                     </p>
                     <% end %>
@@ -94,7 +59,6 @@
     </div>
 </div>
 </main>
-
 
   <script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/core/libs.min.js" type="text/javascript"></script>
   <script src="https://templates.iqonic.design/streamit/html/frontend/assets/vendor/lodash/lodash.min.js" type="text/javascript"></script>
@@ -107,4 +71,3 @@
   <script src="https://templates.iqonic.design/streamit/html/frontend/assets/js/swiper.js" defer="" type="text/javascript"></script>
 
 </body>
-</html>

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class CountryFilmsController < ApplicationController
-  before_action :set_country_film, only: %i[ show edit update destroy ]
+  before_action :set_country_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /country_films or /country_films.json
   def index
@@ -7,8 +10,7 @@ class CountryFilmsController < ApplicationController
   end
 
   # GET /country_films/1 or /country_films/1.json
-  def show
-  end
+  def show; end
 
   # GET /country_films/new
   def new
@@ -16,8 +18,7 @@ class CountryFilmsController < ApplicationController
   end
 
   # GET /country_films/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /country_films or /country_films.json
   def create
@@ -58,13 +59,14 @@ class CountryFilmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_country_film
-      @country_film = CountryFilm.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def country_film_params
-      params.require(:country_film).permit(:country_id, :film_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_country_film
+    @country_film = CountryFilm.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def country_film_params
+    params.require(:country_film).permit(:country_id, :film_id)
+  end
 end
