@@ -2,6 +2,7 @@
 
 class UserHistoriesController < ApplicationController
   before_action :set_user_history, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /user_histories or /user_histories.json
   def index

@@ -2,6 +2,7 @@
 
 class GenreFilmsController < ApplicationController
   before_action :set_genre_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /genre_films or /genre_films.json
   def index

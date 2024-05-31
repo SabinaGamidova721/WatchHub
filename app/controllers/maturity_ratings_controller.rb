@@ -2,6 +2,7 @@
 
 class MaturityRatingsController < ApplicationController
   before_action :set_maturity_rating, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /maturity_ratings or /maturity_ratings.json
   def index

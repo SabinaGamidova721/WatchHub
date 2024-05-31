@@ -2,6 +2,7 @@
 
 class UserWatchLatersController < ApplicationController
   before_action :set_user_watch_later, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /user_watch_laters or /user_watch_laters.json
   def index

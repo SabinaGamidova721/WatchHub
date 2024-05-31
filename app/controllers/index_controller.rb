@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class IndexController < ApplicationController
+  before_action :authenticate_user!, only: [:home]
   def home
     set_current_user
     @top_ten = Film.left_joins(:ratings)

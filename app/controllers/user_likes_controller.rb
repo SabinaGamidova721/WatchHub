@@ -2,6 +2,7 @@
 
 class UserLikesController < ApplicationController
   before_action :set_user_like, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /user_likes or /user_likes.json
   def index

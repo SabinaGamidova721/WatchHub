@@ -2,6 +2,7 @@
 
 class CountryFilmsController < ApplicationController
   before_action :set_country_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /country_films or /country_films.json
   def index
