@@ -12,6 +12,16 @@ Rails.application.routes.draw do
     post '/users/sign_out', to: 'users/sessions#destroy' 
   end
 
+  # resources :films do
+  #   resources :ratings, only: [:create]
+  # end
+
+  post '/ratings/new', to: 'ratings#create' 
+  get '/like', to: 'user_likes#create', as: :like
+  get '/unlike', to: 'user_likes#destroy', as: :unlike
+  get '/later', to: 'user_watch_laters#create', as: :later
+  get '/not_later', to: 'user_watch_laters#destroy', as: :not_later
+
   resources :ratings
   resources :comments
   resources :user_likes

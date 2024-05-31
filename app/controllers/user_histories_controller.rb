@@ -3,7 +3,9 @@ class UserHistoriesController < ApplicationController
 
   # GET /user_histories or /user_histories.json
   def index
-    @user_histories = UserHistory.all
+    # @user_histories = UserHistory.all
+    @user_histories = UserHistory.where(user_profile_id: session[:user_id])
+
   end
 
   # GET /user_histories/1 or /user_histories/1.json

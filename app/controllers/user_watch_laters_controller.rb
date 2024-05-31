@@ -21,11 +21,13 @@ class UserWatchLatersController < ApplicationController
 
   # POST /user_watch_laters or /user_watch_laters.json
   def create
-    @user_watch_later = UserWatchLater.new(user_watch_later_params)
+    @user_watch_later = UserWatchLater.find_or_create_by(film_id: session[:film_id], user_profile_id: session[:user_id])
+
+    # @user_watch_later = UserWatchLater.new(user_watch_later_params)
 
     respond_to do |format|
       if @user_watch_later.save
-        format.html { redirect_to user_watch_later_url(@user_watch_later), notice: "User watch later was successfully created." }
+        format.html { redirect_to film_path(Film.find(session[:film_id])), notice: "User watch later was successfully created." }
         format.json { render :show, status: :created, location: @user_watch_later }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class UserWatchLatersController < ApplicationController
     @user_watch_later.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_watch_laters_url, notice: "User watch later was successfully destroyed." }
+      format.html { redirect_to film_path(Film.find(session[:film_id])), notice: "User watch later was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,7 +62,8 @@ class UserWatchLatersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_watch_later
-      @user_watch_later = UserWatchLater.find(params[:id])
+      # @user_watch_later = UserWatchLater.find(params[:id])
+      @user_watch_later = UserWatchLater.find_or_create_by(film_id: session[:film_id], user_profile_id: session[:user_id])
     end
 
     # Only allow a list of trusted parameters through.

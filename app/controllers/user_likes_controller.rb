@@ -3,7 +3,8 @@ class UserLikesController < ApplicationController
 
   # GET /user_likes or /user_likes.json
   def index
-    @user_likes = UserLike.all
+    # @user_likes = UserLike.all
+    @user_likes = UserLike.where(user_profile_id: session[:user_id])
   end
 
   # GET /user_likes/1 or /user_likes/1.json
@@ -21,11 +22,12 @@ class UserLikesController < ApplicationController
 
   # POST /user_likes or /user_likes.json
   def create
-    @user_like = UserLike.new(user_like_params)
+    @user_like = UserLike.find_or_create_by(film_id: session[:film_id], user_profile_id: session[:user_id])
 
+    #@user_like = UserLike.new(user_like_params)
     respond_to do |format|
       if @user_like.save
-        format.html { redirect_to user_like_url(@user_like), notice: "User like was successfully created." }
+        format.html { redirect_to film_path(Film.find(session[:film_id])), notice: "User like was successfully created." }
         format.json { render :show, status: :created, location: @user_like }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class UserLikesController < ApplicationController
     @user_like.destroy!
 
     respond_to do |format|
-      format.html { redirect_to user_likes_url, notice: "User like was successfully destroyed." }
+      format.html { redirect_to film_path(Film.find(session[:film_id])), notice: "User like was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,7 +62,8 @@ class UserLikesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_like
-      @user_like = UserLike.find(params[:id])
+      # @user_like = UserLike.find(params[:id])
+      @user_like = UserLike.find_by(film_id: session[:film_id], user_profile_id: session[:user_id])
     end
 
     # Only allow a list of trusted parameters through.
