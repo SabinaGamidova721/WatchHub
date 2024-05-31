@@ -61,58 +61,58 @@
 </head>
 <body>
   <div class="container my-5">
-    <h1 class="text-center mb-4" style="margin-top: 70px">Films Search</h1>
+    <h1 class="text-center mb-4" style="margin-top: 70px"><%= t("heading.Films_Search") %></h1>
 
     <div class="filter-form mb-5">
       <form method="get" action="<%= films_path %>">
         <div class="form-row">
           <div class="form-group">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title" value="<%= params[:title] %>" placeholder="Enter title" style="width: 100%">
+            <label for="title" class="form-label"><%= t("activerecord.attributes.film.title") %></label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= params[:title] %>" placeholder="<%= t('p.Enter_title') %>" style="width: 100%">
           </div>
           <div class="form-group">
-            <label for="genre_id" class="form-label">Genre</label>
+            <label for="genre_id" class="form-label"><%= t("p.Genre") %></label>
             <select id="genre_id" name="genre_id" class="form-select">
-              <option value="">Select Genre</option>
+              <option value=""><%= t("p.Select_Genre") %></option>
               <% @genres.each do |genre| %>
-                <option value="<%= genre.id %>" <%= 'selected' if params[:genre_id].to_i == genre.id %>><%= genre.title %></option>
+                <option value="<%= genre.id %>" <%= 'selected' if params[:genre_id].to_i == genre.id %>><%= t("genres.#{genre.title}") %></option>
               <% end %>
             </select>
           </div>
           <div class="form-group">
-            <label for="min_year" class="form-label">Min Year of Release</label>
-            <input type="number" class="form-control" id="min_year" name="min_year" value="<%= params[:min_year] %>" placeholder="Min year" min="1888" style="width: 100%">
+            <label for="min_year" class="form-label"><%= t("p.Min_Year_Release") %></label>
+            <input type="number" class="form-control" id="min_year" name="min_year" value="<%= params[:min_year] %>" placeholder="<%= t('p.Min_year') %>" min="1888" style="width: 100%">
           </div>
           <div class="form-group">
-            <label for="max_duration" class="form-label">Max Duration (minutes)</label>
-            <input type="number" class="form-control" id="max_duration" name="max_duration" value="<%= params[:max_duration] %>" placeholder="Max duration" min="1" style="width: 100%">
+            <label for="max_duration" class="form-label"><%= t("p.Max_Duration") %> (<%= t("time.minutes") %>)</label>
+            <input type="number" class="form-control" id="max_duration" name="max_duration" value="<%= params[:max_duration] %>" placeholder="<%= t('p.Max_Duration') %>" min="1" style="width: 100%">
           </div>
           <div class="form-group">
-            <label for="maturity_rating_id" class="form-label">Maturity Rating</label>
+            <label for="maturity_rating_id" class="form-label"><%= t("heading.Maturity_Rating") %></label>
             <select id="maturity_rating_id" name="maturity_rating_id" class="form-select">
-              <option value="">Select Rating</option>
+              <option value=""><%= t("heading.Select_Rating") %></option>
               <% @maturity_ratings.each do |rating| %>
                 <option value="<%= rating.id %>" <%= 'selected' if params[:maturity_rating_id].to_i == rating.id %>><%= rating.title %></option>
               <% end %>
             </select>
           </div>
           <div class="form-group">
-            <label for="filter_by" class="form-label">Filter By</label>
+            <label for="filter_by" class="form-label"><%= t("p.Filter_By") %></label>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="filter_by" id="filter_by_year" value="year" <%= 'checked' if params[:filter_by] == 'year' %>>
               <label class="form-check-label" for="filter_by_year">
-                Year of Release
+                <%= t("p.Year_Release") %>
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="filter_by" id="filter_by_rating" value="rating" <%= 'checked' if params[:filter_by] == 'rating' %>>
               <label class="form-check-label" for="filter_by_rating">
-                Average Rating
+                <%= t("p.Average_Rating") %>
               </label>
             </div>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary w-100 mt-4">Filter</button>
+            <button type="submit" class="btn btn-primary w-100 mt-4"><%= t("buttons.Filter") %></button>
           </div>
         </div>
       </form>
@@ -122,20 +122,20 @@
       <table class="table table-striped" style="width: 100%;text-align: center">
         <thead>
         <tr>
-          <th style="text-align: center">Title</th>
-          <th style="text-align: center">Genre</th>
-          <th style="text-align: center">Date of Release</th>
-          <th style="text-align: center">Duration</th>
-          <th style="text-align: center">Maturity Rating</th>
-          <th style="text-align: center">Average Rating</th>
+          <th style="text-align: center"><%= t("activerecord.attributes.film.title") %></th>
+          <th style="text-align: center"><%= t("p.Genre") %></th>
+          <th style="text-align: center"><%= t("activerecord.attributes.film.release_date") %></th>
+          <th style="text-align: center"><%= t("activerecord.attributes.film.duration") %></th>
+          <th style="text-align: center"><%= t("activerecord.attributes.film.maturity_rating_id") %></th>
+          <th style="text-align: center"><%= t("p.Average_Rating") %></th>
         </tr>
         </thead>
         <tbody>
         <% @films.each do |film| %>
           <tr onclick="window.location='<%= film_path(film) %>'" style="cursor: pointer;">
-            <td><%= film.title %></td>
-            <td><%= film.genres.map(&:title).join(', ') %></td>
-            <td><%= film.release_date.strftime("%B %e, %Y") %></td>
+            <td><%= t("films.#{film.title}") %></td>
+            <td><%= film.genres.map { |genre| t("genres.#{genre.title}") }.join(', ') %></td>
+            <td><%= I18n.l(film.release_date, format: :default) %></td>
             <td><%= format_duration(film.duration) %></td>
             <td><%= film.maturity_rating.title %></td>
             <td><%= film.average_rating %></td>
