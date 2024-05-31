@@ -44,6 +44,7 @@
 	100% {
 		transform: translatey(-15%) scale(1.35);
 	}
+}
   
 .nav-link,
 a,
@@ -97,7 +98,7 @@ a:visited {
   z-index: 2;
 }
 
-.star {
+.star_slider {
   color: gold;
   font-size: 36px;
   margin-right: 1px;
