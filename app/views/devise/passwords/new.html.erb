@@ -23,7 +23,7 @@
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 
-              <div class="mb-3" style="min-width: 600px;margin-top: 20px">
+              <div class="mb-3" style="min-width: 450px;margin-top: 20px">
                 <%= f.label :email, "Email", class: "text-white fw-500 mb-2" %><br />
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-0 custom-input", style: "border: 2px solid black; height: 50px;" %>
               </div>
