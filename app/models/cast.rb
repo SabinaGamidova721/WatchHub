@@ -6,4 +6,8 @@ class Cast < ApplicationRecord
   has_many :films, through: :cast_films
 
   has_one_attached :avatar
+
+  def display_name
+    "#{first_name} #{last_name}"
+  end
 end

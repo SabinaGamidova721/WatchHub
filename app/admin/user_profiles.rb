@@ -18,4 +18,5 @@ ActiveAdmin.register UserProfile do
   #
 
   remove_filter :avatar_attachment, :avatar_blob
+  remove_filter :user
 end

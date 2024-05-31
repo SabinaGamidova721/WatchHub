@@ -17,4 +17,5 @@ ActiveAdmin.register Film do
   # end
 
   remove_filter :avatar_attachment, :avatar_blob
+  remove_filter :cast_films, :country_films, :genre_films, :user_likes, :user_histories, :user_watch_laters
 end
