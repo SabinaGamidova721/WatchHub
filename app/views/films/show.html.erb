@@ -60,7 +60,7 @@
             <div class="col-md-9 col-12 mb-auto">
               <div class="d-block d-lg-flex align-items-center">
                 <h2 class="trending-text fw-bold text-uppercase my-0 fadeInLeft animated d-inline-block" data-animation-in="fadeInLeft" data-delay-in="0.6" style="opacity: 1; animation-delay: 0.6s">
-                  <%= @film.title %>
+                  <%= t("films.#{@film.title}") %>
                 </h2>
 
                 <div class="slider-ratting d-flex align-items-center ms-lg-3 ms-0">
@@ -84,7 +84,7 @@
                   
                   <% @genres.each do |genre| %>
                     <li>
-                      <%= link_to genre.title, genre_path(genre), style: "text-decoration: none; color: white; font-weight: bold;" %>
+                      <%= link_to t("genres.#{genre.title}"), genre_path(genre), style: "text-decoration: none; color: white; font-weight: bold;" %>
                       <span class="text-secondary"></span>
                     </li>
                   <% end %>
@@ -92,7 +92,7 @@
 
                 <ul class="p-0 mt-2 list-inline d-flex flex-wrap movie-tag">
                 <li class="iq-tag-title text-primary mb-0">
-                  Countries:
+                  <%= t("p.Countries") %>:
                 </li>
                 
                 <% @countries.each do |country| %>
@@ -104,17 +104,17 @@
               </ul> 
                 
               <% session[:film_id] = @film.id %>
-              <span class="font-Weight-500 mb-2"> <span style="color: red; font-weight: bold;">Slogan:</span> <%= @film.slogan %></span>
+              <span class="font-Weight-500 mb-2"> <span style="color: red; font-weight: bold;"><%= t("p.Slogan") %>:</span> <%= @film.slogan %></span>
               <div class="d-flex flex-wrap align-items-center text-white text-detail flex-wrap mb-4">
-                <span class="font-Weight-500 genres-info"><span style="color: red; font-weight: bold;">Duration:</span> <%= @film.duration %> min</span><br>
+                <span class="font-Weight-500 genres-info"><span style="color: red; font-weight: bold;"><%= t("p.Duration") %>:</span> <%= @film.duration %> <%= t("time.minutes") %></span><br>
                 <span class="trending-year trending-year-list font-Weight-500 genres-info" style="margin-left: 20px;">
-                  <span style="color: red; font-weight: bold;">Release date:</span> <%= @film.release_date.strftime("%-d %b %Y") %>
+                  <span style="color: red; font-weight: bold;"><%= t("activerecord.attributes.film.release_date") %>: </span><%= I18n.l(@film.release_date, format: :default) %>
                 </span>
               </div>
                 <div id="film-data" data-film-id="<%= @film.id %>"></div>
                 <div id="user-rating" data-user-rating="<%= @rating.score %>"></div>
                 
-                <p>Your rating:<span class="ms-3 star-rating">
+                <p><%= t("p.Your_rating") %>:<span class="ms-3 star-rating">
                   <label for="rate-1" style="--i:1"><i class="fas fa-star"></i></label>
                   <input type="radio" name="rating" id="rate-1" value="1">
                   <label for="rate-2" style="--i:2"><i class="fas fa-star"></i></label>
@@ -129,15 +129,15 @@
 
 
                 <% if UserLike.exists?(film_id: @film.id, user_profile_id: session[:user_id]) %>
-                  <%= link_to 'Unlike', unlike_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
+                  <%= link_to t("buttons.Unlike"), unlike_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
                 <% else %>
-                  <%= link_to 'Like', like_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
+                  <%= link_to t("buttons.Like"), like_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
                 <% end %>
 
                 <% if UserWatchLater.exists?(film_id: @film.id, user_profile_id: session[:user_id]) %>
-                  <%= link_to 'Not Watch Later', not_later_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
+                  <%= link_to t("buttons.Not_Watch_Later"), not_later_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
                 <% else %>
-                  <%= link_to 'Watch Later', later_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
+                  <%= link_to t("buttons.Watch_Later"), later_path, class: 'btn btn-primary', style: "padding-top: 5px; padding-bottom: 5px;" %>
                 <% end %>
 
             </div>
