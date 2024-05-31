@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-
 class RatingsController < ApplicationController
-  before_action :set_rating, only: %i[show edit update destroy]
+  before_action :set_rating, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /ratings or /ratings.json
   def index
@@ -9,7 +9,8 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1 or /ratings/1.json
-  def show; end
+  def show
+  end
 
   # GET /ratings/new
   def new
@@ -17,22 +18,40 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /ratings or /ratings.json
-  def create
-    @rating = Rating.new(rating_params)
+  # def create
+  #   @rating = Rating.new(rating_params)
 
-    respond_to do |format|
-      if @rating.save
-        format.html { redirect_to rating_url(@rating), notice: "Rating was successfully created." }
-        format.json { render :show, status: :created, location: @rating }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @rating.errors, status: :unprocessable_entity }
-      end
-    end
+  #   respond_to do |format|
+  #     if @rating.save
+  #       format.html { redirect_to rating_url(@rating), notice: "Rating was successfully created." }
+  #       format.json { render :show, status: :created, location: @rating }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @rating.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  def create
+    @film = Film.find(params[:film_id])
+    @rating = Rating.find_or_create_by(film_id: @film.id, user_profile_id: session[:user_id])
+    @rating.update(score: params[:score].to_i)
+    redirect_to @film
   end
+
+  # def create
+  #   @film = Film.find(params[:film_id])
+  #   @rating = Rating.find_or_create_by(film_id: @film.id, user_profile_id: session[:user_id].id)
+  #   if @rating.update(score: params[:rating][:score])
+  #     redirect_to @film, notice: 'Rating was successfully updated.'
+  #   else
+  #     redirect_to @film, alert: 'Rating could not be updated.'
+  #   end
+  # end
 
   # PATCH/PUT /ratings/1 or /ratings/1.json
   def update
@@ -58,14 +77,14 @@ class RatingsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_rating
+      @rating = Rating.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_rating
-    @rating = Rating.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def rating_params
-    params.require(:rating).permit(:user_profile_id, :film_id, :score)
-  end
+    # Only allow a list of trusted parameters through.
+    def rating_params
+      params.require(:rating).permit(:user_profile_id, :film_id, :score)
+    end
 end
+

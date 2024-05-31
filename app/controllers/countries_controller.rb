@@ -2,6 +2,7 @@
 
 class CountriesController < ApplicationController
   before_action :set_country, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /countries or /countries.json
   def index

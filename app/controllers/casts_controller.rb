@@ -2,6 +2,7 @@
 
 class CastsController < ApplicationController
   before_action :set_cast, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /casts or /casts.json
   def index

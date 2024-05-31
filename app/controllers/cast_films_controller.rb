@@ -2,6 +2,7 @@
 
 class CastFilmsController < ApplicationController
   before_action :set_cast_film, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /cast_films or /cast_films.json
   def index

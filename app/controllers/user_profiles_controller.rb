@@ -2,6 +2,7 @@
 
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[edit update destroy]
 
   # GET /user_profiles or /user_profiles.json
   def index
@@ -29,6 +30,7 @@ class UserProfilesController < ApplicationController
     respond_to do |format|
       if @user_profile.save
         session[:user_id] = @user_profile.id
+        sign_in(@user_profile.user)
         format.html { redirect_to home_path, notice: "User profile was successfully created" }
         format.json { render :show, status: :created, location: @user_profile }
       else
@@ -97,7 +99,7 @@ class UserProfilesController < ApplicationController
     if params[:user_profile].present?
       if params[:user_profile][:user_attributes].present? && params[:user_profile][:user_attributes][:password].present?
         permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, {
-          user_attributes: %i[id email password]
+          user_attributes: %i[id email password password_confirmation]
         }]
       else
         permitted_params = [:nickname, :date_of_birth, :date_of_registration, :avatar, {user_attributes: %i[id email]}]
